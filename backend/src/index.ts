@@ -14,7 +14,6 @@ app.use(express.static("public"))
 app.use(cors())
 app.use(bodyParser.json())
 
-
 app.get("/", (req: Request, res: Response) => {
 	res.send("Express + TypeScript Server");
 });
