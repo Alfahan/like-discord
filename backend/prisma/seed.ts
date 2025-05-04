@@ -1,35 +1,37 @@
-import { PrismaClient, RoleType } from "../src/generated/prisma";
+import { PrismaClient, RoleType } from '../src/generated/prisma';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 async function main() {
-    const roles: RoleType[] = ['ADMIN', 'MEMBER', 'OWNER', 'USER']
+  const roles: RoleType[] = ['ADMIN', 'MEMBER', 'OWNER', 'USER'];
 
-    for (const role of roles) {
-        const roleExists = await prisma.role.findFirst({
-            where: {
-                role: role
-            }
-        })
+  for (const role of roles) {
+    const roleExists = await prisma.role.findFirst({
+      where: {
+        role: role
+      }
+    });
 
-        await prisma.role.upsert({
-            where: {
-                id: roleExists?.id ?? ""
-            },
-            create: {
-                role: role
-            },
-            update: {}
-        })
-    }
+    await prisma.role.upsert({
+      where: {
+        id: roleExists?.id ?? ''
+      },
+      create: {
+        role: role
+      },
+      update: {}
+    });
+  }
 
-    console.log('Success seeding roles');
+  console.log('Success seeding roles');
 }
 
-main().then(async() => {
-    await prisma.$disconnect()
-}).catch(async (err) => {
+main()
+  .then(async () => {
+    await prisma.$disconnect();
+  })
+  .catch(async (err) => {
     console.log(err);
-    await prisma.$disconnect()
-    process.exit(1)
-})
+    await prisma.$disconnect();
+    process.exit(1);
+  });

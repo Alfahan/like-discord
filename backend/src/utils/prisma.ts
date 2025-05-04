@@ -1,22 +1,22 @@
-import { PrismaClient } from "../generated/prisma";
+import { PrismaClient } from '../generated/prisma';
 
 const prisma = new PrismaClient().$extends({
     result: {
         user: {
             photo_url: {
                 needs: {
-                    photo: true
+                    photo: true,
                 },
                 compute(data) {
                     if (data.photo) {
-                        return `${process.env.URL_ASSET_PHOTO}${data.photo}`
+                        return `${process.env.URL_ASSET_PHOTO}${data.photo}`;
                     }
 
-                    return null
-                }
-            }
-        }
-    }
-})
+                    return null;
+                },
+            },
+        },
+    },
+});
 
-export default prisma
+export default prisma;
