@@ -1744,13 +1744,13 @@ export namespace Prisma {
    */
 
   export type RoleCountOutputType = {
-    users: number
     room_member_roles: number
+    users: number
   }
 
   export type RoleCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users?: boolean | RoleCountOutputTypeCountUsersArgs
     room_member_roles?: boolean | RoleCountOutputTypeCountRoom_member_rolesArgs
+    users?: boolean | RoleCountOutputTypeCountUsersArgs
   }
 
   // Custom InputTypes
@@ -1767,15 +1767,15 @@ export namespace Prisma {
   /**
    * RoleCountOutputType without action
    */
-  export type RoleCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
+  export type RoleCountOutputTypeCountRoom_member_rolesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RoomMemberWhereInput
   }
 
   /**
    * RoleCountOutputType without action
    */
-  export type RoleCountOutputTypeCountRoom_member_rolesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: RoomMemberWhereInput
+  export type RoleCountOutputTypeCountUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserWhereInput
   }
 
 
@@ -1784,23 +1784,23 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    room: number
+    payouts: number
     room_members: number
     room_message: number
-    password_resets: number
+    room: number
     owner_transactions: number
     member_transactions: number
-    payouts: number
+    password_resets: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    room?: boolean | UserCountOutputTypeCountRoomArgs
+    payouts?: boolean | UserCountOutputTypeCountPayoutsArgs
     room_members?: boolean | UserCountOutputTypeCountRoom_membersArgs
     room_message?: boolean | UserCountOutputTypeCountRoom_messageArgs
-    password_resets?: boolean | UserCountOutputTypeCountPassword_resetsArgs
+    room?: boolean | UserCountOutputTypeCountRoomArgs
     owner_transactions?: boolean | UserCountOutputTypeCountOwner_transactionsArgs
     member_transactions?: boolean | UserCountOutputTypeCountMember_transactionsArgs
-    payouts?: boolean | UserCountOutputTypeCountPayoutsArgs
+    password_resets?: boolean | UserCountOutputTypeCountPassword_resetsArgs
   }
 
   // Custom InputTypes
@@ -1817,8 +1817,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountRoomArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: RoomWhereInput
+  export type UserCountOutputTypeCountPayoutsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PayoutWhereInput
   }
 
   /**
@@ -1838,8 +1838,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountPassword_resetsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PasswordResetWhereInput
+  export type UserCountOutputTypeCountRoomArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RoomWhereInput
   }
 
   /**
@@ -1859,8 +1859,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountPayoutsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PayoutWhereInput
+  export type UserCountOutputTypeCountPassword_resetsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PasswordResetWhereInput
   }
 
 
@@ -2088,8 +2088,8 @@ export namespace Prisma {
   export type RoleSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     role?: boolean
-    users?: boolean | Role$usersArgs<ExtArgs>
     room_member_roles?: boolean | Role$room_member_rolesArgs<ExtArgs>
+    users?: boolean | Role$usersArgs<ExtArgs>
     _count?: boolean | RoleCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["role"]>
 
@@ -2110,8 +2110,8 @@ export namespace Prisma {
 
   export type RoleOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "role", ExtArgs["result"]["role"]>
   export type RoleInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    users?: boolean | Role$usersArgs<ExtArgs>
     room_member_roles?: boolean | Role$room_member_rolesArgs<ExtArgs>
+    users?: boolean | Role$usersArgs<ExtArgs>
     _count?: boolean | RoleCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type RoleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2120,8 +2120,8 @@ export namespace Prisma {
   export type $RolePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Role"
     objects: {
-      users: Prisma.$UserPayload<ExtArgs>[]
       room_member_roles: Prisma.$RoomMemberPayload<ExtArgs>[]
+      users: Prisma.$UserPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2520,8 +2520,8 @@ export namespace Prisma {
    */
   export interface Prisma__RoleClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    users<T extends Role$usersArgs<ExtArgs> = {}>(args?: Subset<T, Role$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     room_member_roles<T extends Role$room_member_rolesArgs<ExtArgs> = {}>(args?: Subset<T, Role$room_member_rolesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RoomMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    users<T extends Role$usersArgs<ExtArgs> = {}>(args?: Subset<T, Role$usersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2941,30 +2941,6 @@ export namespace Prisma {
   }
 
   /**
-   * Role.users
-   */
-  export type Role$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the User
-     */
-    omit?: UserOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
-    cursor?: UserWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
-  }
-
-  /**
    * Role.room_member_roles
    */
   export type Role$room_member_rolesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2986,6 +2962,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: RoomMemberScalarFieldEnum | RoomMemberScalarFieldEnum[]
+  }
+
+  /**
+   * Role.users
+   */
+  export type Role$usersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    cursor?: UserWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
   }
 
   /**
@@ -3179,14 +3179,14 @@ export namespace Prisma {
     password?: boolean
     photo?: boolean
     role_id?: boolean
-    role?: boolean | RoleDefaultArgs<ExtArgs>
-    room?: boolean | User$roomArgs<ExtArgs>
+    payouts?: boolean | User$payoutsArgs<ExtArgs>
     room_members?: boolean | User$room_membersArgs<ExtArgs>
     room_message?: boolean | User$room_messageArgs<ExtArgs>
-    password_resets?: boolean | User$password_resetsArgs<ExtArgs>
+    room?: boolean | User$roomArgs<ExtArgs>
     owner_transactions?: boolean | User$owner_transactionsArgs<ExtArgs>
     member_transactions?: boolean | User$member_transactionsArgs<ExtArgs>
-    payouts?: boolean | User$payoutsArgs<ExtArgs>
+    password_resets?: boolean | User$password_resetsArgs<ExtArgs>
+    role?: boolean | RoleDefaultArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3221,14 +3221,14 @@ export namespace Prisma {
 
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "photo" | "role_id", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    role?: boolean | RoleDefaultArgs<ExtArgs>
-    room?: boolean | User$roomArgs<ExtArgs>
+    payouts?: boolean | User$payoutsArgs<ExtArgs>
     room_members?: boolean | User$room_membersArgs<ExtArgs>
     room_message?: boolean | User$room_messageArgs<ExtArgs>
-    password_resets?: boolean | User$password_resetsArgs<ExtArgs>
+    room?: boolean | User$roomArgs<ExtArgs>
     owner_transactions?: boolean | User$owner_transactionsArgs<ExtArgs>
     member_transactions?: boolean | User$member_transactionsArgs<ExtArgs>
-    payouts?: boolean | User$payoutsArgs<ExtArgs>
+    password_resets?: boolean | User$password_resetsArgs<ExtArgs>
+    role?: boolean | RoleDefaultArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3241,14 +3241,14 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      role: Prisma.$RolePayload<ExtArgs>
-      room: Prisma.$RoomPayload<ExtArgs>[]
+      payouts: Prisma.$PayoutPayload<ExtArgs>[]
       room_members: Prisma.$RoomMemberPayload<ExtArgs>[]
       room_message: Prisma.$RoomMessagePayload<ExtArgs>[]
-      password_resets: Prisma.$PasswordResetPayload<ExtArgs>[]
+      room: Prisma.$RoomPayload<ExtArgs>[]
       owner_transactions: Prisma.$TransactionPayload<ExtArgs>[]
       member_transactions: Prisma.$TransactionPayload<ExtArgs>[]
-      payouts: Prisma.$PayoutPayload<ExtArgs>[]
+      password_resets: Prisma.$PasswordResetPayload<ExtArgs>[]
+      role: Prisma.$RolePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3651,14 +3651,14 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    role<T extends RoleDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RoleDefaultArgs<ExtArgs>>): Prisma__RoleClient<$Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    room<T extends User$roomArgs<ExtArgs> = {}>(args?: Subset<T, User$roomArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RoomPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    payouts<T extends User$payoutsArgs<ExtArgs> = {}>(args?: Subset<T, User$payoutsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PayoutPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     room_members<T extends User$room_membersArgs<ExtArgs> = {}>(args?: Subset<T, User$room_membersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RoomMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     room_message<T extends User$room_messageArgs<ExtArgs> = {}>(args?: Subset<T, User$room_messageArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RoomMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    password_resets<T extends User$password_resetsArgs<ExtArgs> = {}>(args?: Subset<T, User$password_resetsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordResetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    room<T extends User$roomArgs<ExtArgs> = {}>(args?: Subset<T, User$roomArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RoomPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     owner_transactions<T extends User$owner_transactionsArgs<ExtArgs> = {}>(args?: Subset<T, User$owner_transactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     member_transactions<T extends User$member_transactionsArgs<ExtArgs> = {}>(args?: Subset<T, User$member_transactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    payouts<T extends User$payoutsArgs<ExtArgs> = {}>(args?: Subset<T, User$payoutsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PayoutPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    password_resets<T extends User$password_resetsArgs<ExtArgs> = {}>(args?: Subset<T, User$password_resetsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordResetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    role<T extends RoleDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RoleDefaultArgs<ExtArgs>>): Prisma__RoleClient<$Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4090,27 +4090,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.room
+   * User.payouts
    */
-  export type User$roomArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$payoutsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Room
+     * Select specific fields to fetch from the Payout
      */
-    select?: RoomSelect<ExtArgs> | null
+    select?: PayoutSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Room
+     * Omit specific fields from the Payout
      */
-    omit?: RoomOmit<ExtArgs> | null
+    omit?: PayoutOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: RoomInclude<ExtArgs> | null
-    where?: RoomWhereInput
-    orderBy?: RoomOrderByWithRelationInput | RoomOrderByWithRelationInput[]
-    cursor?: RoomWhereUniqueInput
+    include?: PayoutInclude<ExtArgs> | null
+    where?: PayoutWhereInput
+    orderBy?: PayoutOrderByWithRelationInput | PayoutOrderByWithRelationInput[]
+    cursor?: PayoutWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: RoomScalarFieldEnum | RoomScalarFieldEnum[]
+    distinct?: PayoutScalarFieldEnum | PayoutScalarFieldEnum[]
   }
 
   /**
@@ -4162,27 +4162,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.password_resets
+   * User.room
    */
-  export type User$password_resetsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$roomArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PasswordReset
+     * Select specific fields to fetch from the Room
      */
-    select?: PasswordResetSelect<ExtArgs> | null
+    select?: RoomSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PasswordReset
+     * Omit specific fields from the Room
      */
-    omit?: PasswordResetOmit<ExtArgs> | null
+    omit?: RoomOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PasswordResetInclude<ExtArgs> | null
-    where?: PasswordResetWhereInput
-    orderBy?: PasswordResetOrderByWithRelationInput | PasswordResetOrderByWithRelationInput[]
-    cursor?: PasswordResetWhereUniqueInput
+    include?: RoomInclude<ExtArgs> | null
+    where?: RoomWhereInput
+    orderBy?: RoomOrderByWithRelationInput | RoomOrderByWithRelationInput[]
+    cursor?: RoomWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: PasswordResetScalarFieldEnum | PasswordResetScalarFieldEnum[]
+    distinct?: RoomScalarFieldEnum | RoomScalarFieldEnum[]
   }
 
   /**
@@ -4234,27 +4234,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.payouts
+   * User.password_resets
    */
-  export type User$payoutsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$password_resetsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Payout
+     * Select specific fields to fetch from the PasswordReset
      */
-    select?: PayoutSelect<ExtArgs> | null
+    select?: PasswordResetSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Payout
+     * Omit specific fields from the PasswordReset
      */
-    omit?: PayoutOmit<ExtArgs> | null
+    omit?: PasswordResetOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PayoutInclude<ExtArgs> | null
-    where?: PayoutWhereInput
-    orderBy?: PayoutOrderByWithRelationInput | PayoutOrderByWithRelationInput[]
-    cursor?: PayoutWhereUniqueInput
+    include?: PasswordResetInclude<ExtArgs> | null
+    where?: PasswordResetWhereInput
+    orderBy?: PasswordResetOrderByWithRelationInput | PasswordResetOrderByWithRelationInput[]
+    cursor?: PasswordResetWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: PayoutScalarFieldEnum | PayoutScalarFieldEnum[]
+    distinct?: PasswordResetScalarFieldEnum | PasswordResetScalarFieldEnum[]
   }
 
   /**
@@ -6639,9 +6639,9 @@ export namespace Prisma {
     is_group?: boolean
     created_by?: boolean
     created_at?: boolean
-    created_by_user?: boolean | UserDefaultArgs<ExtArgs>
     members?: boolean | Room$membersArgs<ExtArgs>
     messages?: boolean | Room$messagesArgs<ExtArgs>
+    created_by_user?: boolean | UserDefaultArgs<ExtArgs>
     _count?: boolean | RoomCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["room"]>
 
@@ -6673,9 +6673,9 @@ export namespace Prisma {
 
   export type RoomOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "is_group" | "created_by" | "created_at", ExtArgs["result"]["room"]>
   export type RoomInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    created_by_user?: boolean | UserDefaultArgs<ExtArgs>
     members?: boolean | Room$membersArgs<ExtArgs>
     messages?: boolean | Room$messagesArgs<ExtArgs>
+    created_by_user?: boolean | UserDefaultArgs<ExtArgs>
     _count?: boolean | RoomCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type RoomIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6688,9 +6688,9 @@ export namespace Prisma {
   export type $RoomPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Room"
     objects: {
-      created_by_user: Prisma.$UserPayload<ExtArgs>
       members: Prisma.$RoomMemberPayload<ExtArgs>[]
       messages: Prisma.$RoomMessagePayload<ExtArgs>[]
+      created_by_user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7092,9 +7092,9 @@ export namespace Prisma {
    */
   export interface Prisma__RoomClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    created_by_user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     members<T extends Room$membersArgs<ExtArgs> = {}>(args?: Subset<T, Room$membersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RoomMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     messages<T extends Room$messagesArgs<ExtArgs> = {}>(args?: Subset<T, Room$messagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RoomMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    created_by_user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7755,9 +7755,9 @@ export namespace Prisma {
     user_id?: boolean
     role_id?: boolean
     joined_at?: boolean
+    role?: boolean | RoleDefaultArgs<ExtArgs>
     room?: boolean | RoomDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    role?: boolean | RoleDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["roomMember"]>
 
   export type RoomMemberSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7766,9 +7766,9 @@ export namespace Prisma {
     user_id?: boolean
     role_id?: boolean
     joined_at?: boolean
+    role?: boolean | RoleDefaultArgs<ExtArgs>
     room?: boolean | RoomDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    role?: boolean | RoleDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["roomMember"]>
 
   export type RoomMemberSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7777,9 +7777,9 @@ export namespace Prisma {
     user_id?: boolean
     role_id?: boolean
     joined_at?: boolean
+    role?: boolean | RoleDefaultArgs<ExtArgs>
     room?: boolean | RoomDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    role?: boolean | RoleDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["roomMember"]>
 
   export type RoomMemberSelectScalar = {
@@ -7792,27 +7792,27 @@ export namespace Prisma {
 
   export type RoomMemberOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "room_id" | "user_id" | "role_id" | "joined_at", ExtArgs["result"]["roomMember"]>
   export type RoomMemberInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    role?: boolean | RoleDefaultArgs<ExtArgs>
     room?: boolean | RoomDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    role?: boolean | RoleDefaultArgs<ExtArgs>
   }
   export type RoomMemberIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    role?: boolean | RoleDefaultArgs<ExtArgs>
     room?: boolean | RoomDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    role?: boolean | RoleDefaultArgs<ExtArgs>
   }
   export type RoomMemberIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    role?: boolean | RoleDefaultArgs<ExtArgs>
     room?: boolean | RoomDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    role?: boolean | RoleDefaultArgs<ExtArgs>
   }
 
   export type $RoomMemberPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "RoomMember"
     objects: {
+      role: Prisma.$RolePayload<ExtArgs>
       room: Prisma.$RoomPayload<ExtArgs>
       user: Prisma.$UserPayload<ExtArgs>
-      role: Prisma.$RolePayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -8214,9 +8214,9 @@ export namespace Prisma {
    */
   export interface Prisma__RoomMemberClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    role<T extends RoleDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RoleDefaultArgs<ExtArgs>>): Prisma__RoleClient<$Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     room<T extends RoomDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RoomDefaultArgs<ExtArgs>>): Prisma__RoomClient<$Result.GetResult<Prisma.$RoomPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    role<T extends RoleDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RoleDefaultArgs<ExtArgs>>): Prisma__RoleClient<$Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10990,9 +10990,9 @@ export namespace Prisma {
     price?: boolean
     type?: boolean
     created_at?: boolean
+    group?: boolean | GroupDefaultArgs<ExtArgs>
     owner?: boolean | UserDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    group?: boolean | GroupDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaction"]>
 
   export type TransactionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11003,9 +11003,9 @@ export namespace Prisma {
     price?: boolean
     type?: boolean
     created_at?: boolean
+    group?: boolean | GroupDefaultArgs<ExtArgs>
     owner?: boolean | UserDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    group?: boolean | GroupDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaction"]>
 
   export type TransactionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11016,9 +11016,9 @@ export namespace Prisma {
     price?: boolean
     type?: boolean
     created_at?: boolean
+    group?: boolean | GroupDefaultArgs<ExtArgs>
     owner?: boolean | UserDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    group?: boolean | GroupDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["transaction"]>
 
   export type TransactionSelectScalar = {
@@ -11033,27 +11033,27 @@ export namespace Prisma {
 
   export type TransactionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "owner_id" | "user_id" | "group_id" | "price" | "type" | "created_at", ExtArgs["result"]["transaction"]>
   export type TransactionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    group?: boolean | GroupDefaultArgs<ExtArgs>
     owner?: boolean | UserDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    group?: boolean | GroupDefaultArgs<ExtArgs>
   }
   export type TransactionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    group?: boolean | GroupDefaultArgs<ExtArgs>
     owner?: boolean | UserDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    group?: boolean | GroupDefaultArgs<ExtArgs>
   }
   export type TransactionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    group?: boolean | GroupDefaultArgs<ExtArgs>
     owner?: boolean | UserDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
-    group?: boolean | GroupDefaultArgs<ExtArgs>
   }
 
   export type $TransactionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Transaction"
     objects: {
+      group: Prisma.$GroupPayload<ExtArgs>
       owner: Prisma.$UserPayload<ExtArgs>
       user: Prisma.$UserPayload<ExtArgs>
-      group: Prisma.$GroupPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -11457,9 +11457,9 @@ export namespace Prisma {
    */
   export interface Prisma__TransactionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    group<T extends GroupDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GroupDefaultArgs<ExtArgs>>): Prisma__GroupClient<$Result.GetResult<Prisma.$GroupPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     owner<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    group<T extends GroupDefaultArgs<ExtArgs> = {}>(args?: Subset<T, GroupDefaultArgs<ExtArgs>>): Prisma__GroupClient<$Result.GetResult<Prisma.$GroupPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -13339,15 +13339,15 @@ export namespace Prisma {
     NOT?: RoleWhereInput | RoleWhereInput[]
     id?: StringFilter<"Role"> | string
     role?: EnumRoleTypeFilter<"Role"> | $Enums.RoleType
-    users?: UserListRelationFilter
     room_member_roles?: RoomMemberListRelationFilter
+    users?: UserListRelationFilter
   }
 
   export type RoleOrderByWithRelationInput = {
     id?: SortOrder
     role?: SortOrder
-    users?: UserOrderByRelationAggregateInput
     room_member_roles?: RoomMemberOrderByRelationAggregateInput
+    users?: UserOrderByRelationAggregateInput
   }
 
   export type RoleWhereUniqueInput = Prisma.AtLeast<{
@@ -13356,8 +13356,8 @@ export namespace Prisma {
     OR?: RoleWhereInput[]
     NOT?: RoleWhereInput | RoleWhereInput[]
     role?: EnumRoleTypeFilter<"Role"> | $Enums.RoleType
-    users?: UserListRelationFilter
     room_member_roles?: RoomMemberListRelationFilter
+    users?: UserListRelationFilter
   }, "id">
 
   export type RoleOrderByWithAggregationInput = {
@@ -13386,14 +13386,14 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     photo?: StringFilter<"User"> | string
     role_id?: StringFilter<"User"> | string
-    role?: XOR<RoleScalarRelationFilter, RoleWhereInput>
-    room?: RoomListRelationFilter
+    payouts?: PayoutListRelationFilter
     room_members?: RoomMemberListRelationFilter
     room_message?: RoomMessageListRelationFilter
-    password_resets?: PasswordResetListRelationFilter
+    room?: RoomListRelationFilter
     owner_transactions?: TransactionListRelationFilter
     member_transactions?: TransactionListRelationFilter
-    payouts?: PayoutListRelationFilter
+    password_resets?: PasswordResetListRelationFilter
+    role?: XOR<RoleScalarRelationFilter, RoleWhereInput>
   }
 
   export type UserOrderByWithRelationInput = {
@@ -13403,14 +13403,14 @@ export namespace Prisma {
     password?: SortOrder
     photo?: SortOrder
     role_id?: SortOrder
-    role?: RoleOrderByWithRelationInput
-    room?: RoomOrderByRelationAggregateInput
+    payouts?: PayoutOrderByRelationAggregateInput
     room_members?: RoomMemberOrderByRelationAggregateInput
     room_message?: RoomMessageOrderByRelationAggregateInput
-    password_resets?: PasswordResetOrderByRelationAggregateInput
+    room?: RoomOrderByRelationAggregateInput
     owner_transactions?: TransactionOrderByRelationAggregateInput
     member_transactions?: TransactionOrderByRelationAggregateInput
-    payouts?: PayoutOrderByRelationAggregateInput
+    password_resets?: PasswordResetOrderByRelationAggregateInput
+    role?: RoleOrderByWithRelationInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -13423,14 +13423,14 @@ export namespace Prisma {
     password?: StringFilter<"User"> | string
     photo?: StringFilter<"User"> | string
     role_id?: StringFilter<"User"> | string
-    role?: XOR<RoleScalarRelationFilter, RoleWhereInput>
-    room?: RoomListRelationFilter
+    payouts?: PayoutListRelationFilter
     room_members?: RoomMemberListRelationFilter
     room_message?: RoomMessageListRelationFilter
-    password_resets?: PasswordResetListRelationFilter
+    room?: RoomListRelationFilter
     owner_transactions?: TransactionListRelationFilter
     member_transactions?: TransactionListRelationFilter
-    payouts?: PayoutListRelationFilter
+    password_resets?: PasswordResetListRelationFilter
+    role?: XOR<RoleScalarRelationFilter, RoleWhereInput>
   }, "id">
 
   export type UserOrderByWithAggregationInput = {
@@ -13586,9 +13586,9 @@ export namespace Prisma {
     is_group?: BoolFilter<"Room"> | boolean
     created_by?: StringFilter<"Room"> | string
     created_at?: DateTimeFilter<"Room"> | Date | string
-    created_by_user?: XOR<UserScalarRelationFilter, UserWhereInput>
     members?: RoomMemberListRelationFilter
     messages?: RoomMessageListRelationFilter
+    created_by_user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type RoomOrderByWithRelationInput = {
@@ -13597,9 +13597,9 @@ export namespace Prisma {
     is_group?: SortOrder
     created_by?: SortOrder
     created_at?: SortOrder
-    created_by_user?: UserOrderByWithRelationInput
     members?: RoomMemberOrderByRelationAggregateInput
     messages?: RoomMessageOrderByRelationAggregateInput
+    created_by_user?: UserOrderByWithRelationInput
   }
 
   export type RoomWhereUniqueInput = Prisma.AtLeast<{
@@ -13611,9 +13611,9 @@ export namespace Prisma {
     is_group?: BoolFilter<"Room"> | boolean
     created_by?: StringFilter<"Room"> | string
     created_at?: DateTimeFilter<"Room"> | Date | string
-    created_by_user?: XOR<UserScalarRelationFilter, UserWhereInput>
     members?: RoomMemberListRelationFilter
     messages?: RoomMessageListRelationFilter
+    created_by_user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type RoomOrderByWithAggregationInput = {
@@ -13647,9 +13647,9 @@ export namespace Prisma {
     user_id?: StringFilter<"RoomMember"> | string
     role_id?: StringFilter<"RoomMember"> | string
     joined_at?: DateTimeFilter<"RoomMember"> | Date | string
+    role?: XOR<RoleScalarRelationFilter, RoleWhereInput>
     room?: XOR<RoomScalarRelationFilter, RoomWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    role?: XOR<RoleScalarRelationFilter, RoleWhereInput>
   }
 
   export type RoomMemberOrderByWithRelationInput = {
@@ -13658,9 +13658,9 @@ export namespace Prisma {
     user_id?: SortOrder
     role_id?: SortOrder
     joined_at?: SortOrder
+    role?: RoleOrderByWithRelationInput
     room?: RoomOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
-    role?: RoleOrderByWithRelationInput
   }
 
   export type RoomMemberWhereUniqueInput = Prisma.AtLeast<{
@@ -13672,9 +13672,9 @@ export namespace Prisma {
     user_id?: StringFilter<"RoomMember"> | string
     role_id?: StringFilter<"RoomMember"> | string
     joined_at?: DateTimeFilter<"RoomMember"> | Date | string
+    role?: XOR<RoleScalarRelationFilter, RoleWhereInput>
     room?: XOR<RoomScalarRelationFilter, RoomWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    role?: XOR<RoleScalarRelationFilter, RoleWhereInput>
   }, "id">
 
   export type RoomMemberOrderByWithAggregationInput = {
@@ -13818,9 +13818,9 @@ export namespace Prisma {
     price?: IntFilter<"Transaction"> | number
     type?: EnumTransactionTypeNullableFilter<"Transaction"> | $Enums.TransactionType | null
     created_at?: DateTimeFilter<"Transaction"> | Date | string
+    group?: XOR<GroupScalarRelationFilter, GroupWhereInput>
     owner?: XOR<UserScalarRelationFilter, UserWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    group?: XOR<GroupScalarRelationFilter, GroupWhereInput>
   }
 
   export type TransactionOrderByWithRelationInput = {
@@ -13831,9 +13831,9 @@ export namespace Prisma {
     price?: SortOrder
     type?: SortOrderInput | SortOrder
     created_at?: SortOrder
+    group?: GroupOrderByWithRelationInput
     owner?: UserOrderByWithRelationInput
     user?: UserOrderByWithRelationInput
-    group?: GroupOrderByWithRelationInput
   }
 
   export type TransactionWhereUniqueInput = Prisma.AtLeast<{
@@ -13847,9 +13847,9 @@ export namespace Prisma {
     price?: IntFilter<"Transaction"> | number
     type?: EnumTransactionTypeNullableFilter<"Transaction"> | $Enums.TransactionType | null
     created_at?: DateTimeFilter<"Transaction"> | Date | string
+    group?: XOR<GroupScalarRelationFilter, GroupWhereInput>
     owner?: XOR<UserScalarRelationFilter, UserWhereInput>
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    group?: XOR<GroupScalarRelationFilter, GroupWhereInput>
   }, "id">
 
   export type TransactionOrderByWithAggregationInput = {
@@ -13960,29 +13960,29 @@ export namespace Prisma {
   export type RoleCreateInput = {
     id?: string
     role: $Enums.RoleType
-    users?: UserCreateNestedManyWithoutRoleInput
     room_member_roles?: RoomMemberCreateNestedManyWithoutRoleInput
+    users?: UserCreateNestedManyWithoutRoleInput
   }
 
   export type RoleUncheckedCreateInput = {
     id?: string
     role: $Enums.RoleType
-    users?: UserUncheckedCreateNestedManyWithoutRoleInput
     room_member_roles?: RoomMemberUncheckedCreateNestedManyWithoutRoleInput
+    users?: UserUncheckedCreateNestedManyWithoutRoleInput
   }
 
   export type RoleUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleTypeFieldUpdateOperationsInput | $Enums.RoleType
-    users?: UserUpdateManyWithoutRoleNestedInput
     room_member_roles?: RoomMemberUpdateManyWithoutRoleNestedInput
+    users?: UserUpdateManyWithoutRoleNestedInput
   }
 
   export type RoleUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     role?: EnumRoleTypeFieldUpdateOperationsInput | $Enums.RoleType
-    users?: UserUncheckedUpdateManyWithoutRoleNestedInput
     room_member_roles?: RoomMemberUncheckedUpdateManyWithoutRoleNestedInput
+    users?: UserUncheckedUpdateManyWithoutRoleNestedInput
   }
 
   export type RoleCreateManyInput = {
@@ -14006,14 +14006,14 @@ export namespace Prisma {
     email: string
     password: string
     photo: string
-    role: RoleCreateNestedOneWithoutUsersInput
-    room?: RoomCreateNestedManyWithoutCreated_by_userInput
+    payouts?: PayoutCreateNestedManyWithoutUserInput
     room_members?: RoomMemberCreateNestedManyWithoutUserInput
     room_message?: RoomMessageCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+    room?: RoomCreateNestedManyWithoutCreated_by_userInput
     owner_transactions?: TransactionCreateNestedManyWithoutOwnerInput
     member_transactions?: TransactionCreateNestedManyWithoutUserInput
-    payouts?: PayoutCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+    role: RoleCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -14023,13 +14023,13 @@ export namespace Prisma {
     password: string
     photo: string
     role_id: string
-    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
+    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
     room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
     room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
     owner_transactions?: TransactionUncheckedCreateNestedManyWithoutOwnerInput
     member_transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
-    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -14038,14 +14038,14 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
-    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
-    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
+    payouts?: PayoutUpdateManyWithoutUserNestedInput
     room_members?: RoomMemberUpdateManyWithoutUserNestedInput
     room_message?: RoomMessageUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
     owner_transactions?: TransactionUpdateManyWithoutOwnerNestedInput
     member_transactions?: TransactionUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -14055,13 +14055,13 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
     role_id?: StringFieldUpdateOperationsInput | string
-    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
+    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
     room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
     room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
     owner_transactions?: TransactionUncheckedUpdateManyWithoutOwnerNestedInput
     member_transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -14221,9 +14221,9 @@ export namespace Prisma {
     name?: string | null
     is_group?: boolean
     created_at?: Date | string
-    created_by_user: UserCreateNestedOneWithoutRoomInput
     members?: RoomMemberCreateNestedManyWithoutRoomInput
     messages?: RoomMessageCreateNestedManyWithoutRoomInput
+    created_by_user: UserCreateNestedOneWithoutRoomInput
   }
 
   export type RoomUncheckedCreateInput = {
@@ -14241,9 +14241,9 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     is_group?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    created_by_user?: UserUpdateOneRequiredWithoutRoomNestedInput
     members?: RoomMemberUpdateManyWithoutRoomNestedInput
     messages?: RoomMessageUpdateManyWithoutRoomNestedInput
+    created_by_user?: UserUpdateOneRequiredWithoutRoomNestedInput
   }
 
   export type RoomUncheckedUpdateInput = {
@@ -14282,9 +14282,9 @@ export namespace Prisma {
   export type RoomMemberCreateInput = {
     id?: string
     joined_at?: Date | string
+    role: RoleCreateNestedOneWithoutRoom_member_rolesInput
     room: RoomCreateNestedOneWithoutMembersInput
     user: UserCreateNestedOneWithoutRoom_membersInput
-    role: RoleCreateNestedOneWithoutRoom_member_rolesInput
   }
 
   export type RoomMemberUncheckedCreateInput = {
@@ -14298,9 +14298,9 @@ export namespace Prisma {
   export type RoomMemberUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     joined_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    role?: RoleUpdateOneRequiredWithoutRoom_member_rolesNestedInput
     room?: RoomUpdateOneRequiredWithoutMembersNestedInput
     user?: UserUpdateOneRequiredWithoutRoom_membersNestedInput
-    role?: RoleUpdateOneRequiredWithoutRoom_member_rolesNestedInput
   }
 
   export type RoomMemberUncheckedUpdateInput = {
@@ -14439,9 +14439,9 @@ export namespace Prisma {
     price: number
     type?: $Enums.TransactionType | null
     created_at?: Date | string
+    group: GroupCreateNestedOneWithoutTransactionsInput
     owner: UserCreateNestedOneWithoutOwner_transactionsInput
     user: UserCreateNestedOneWithoutMember_transactionsInput
-    group: GroupCreateNestedOneWithoutTransactionsInput
   }
 
   export type TransactionUncheckedCreateInput = {
@@ -14459,9 +14459,9 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number
     type?: NullableEnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    group?: GroupUpdateOneRequiredWithoutTransactionsNestedInput
     owner?: UserUpdateOneRequiredWithoutOwner_transactionsNestedInput
     user?: UserUpdateOneRequiredWithoutMember_transactionsNestedInput
-    group?: GroupUpdateOneRequiredWithoutTransactionsNestedInput
   }
 
   export type TransactionUncheckedUpdateInput = {
@@ -14606,23 +14606,23 @@ export namespace Prisma {
     not?: NestedEnumRoleTypeFilter<$PrismaModel> | $Enums.RoleType
   }
 
-  export type UserListRelationFilter = {
-    every?: UserWhereInput
-    some?: UserWhereInput
-    none?: UserWhereInput
-  }
-
   export type RoomMemberListRelationFilter = {
     every?: RoomMemberWhereInput
     some?: RoomMemberWhereInput
     none?: RoomMemberWhereInput
   }
 
-  export type UserOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type UserListRelationFilter = {
+    every?: UserWhereInput
+    some?: UserWhereInput
+    none?: UserWhereInput
   }
 
   export type RoomMemberOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type UserOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -14669,15 +14669,10 @@ export namespace Prisma {
     _max?: NestedEnumRoleTypeFilter<$PrismaModel>
   }
 
-  export type RoleScalarRelationFilter = {
-    is?: RoleWhereInput
-    isNot?: RoleWhereInput
-  }
-
-  export type RoomListRelationFilter = {
-    every?: RoomWhereInput
-    some?: RoomWhereInput
-    none?: RoomWhereInput
+  export type PayoutListRelationFilter = {
+    every?: PayoutWhereInput
+    some?: PayoutWhereInput
+    none?: PayoutWhereInput
   }
 
   export type RoomMessageListRelationFilter = {
@@ -14686,10 +14681,10 @@ export namespace Prisma {
     none?: RoomMessageWhereInput
   }
 
-  export type PasswordResetListRelationFilter = {
-    every?: PasswordResetWhereInput
-    some?: PasswordResetWhereInput
-    none?: PasswordResetWhereInput
+  export type RoomListRelationFilter = {
+    every?: RoomWhereInput
+    some?: RoomWhereInput
+    none?: RoomWhereInput
   }
 
   export type TransactionListRelationFilter = {
@@ -14698,13 +14693,18 @@ export namespace Prisma {
     none?: TransactionWhereInput
   }
 
-  export type PayoutListRelationFilter = {
-    every?: PayoutWhereInput
-    some?: PayoutWhereInput
-    none?: PayoutWhereInput
+  export type PasswordResetListRelationFilter = {
+    every?: PasswordResetWhereInput
+    some?: PasswordResetWhereInput
+    none?: PasswordResetWhereInput
   }
 
-  export type RoomOrderByRelationAggregateInput = {
+  export type RoleScalarRelationFilter = {
+    is?: RoleWhereInput
+    isNot?: RoleWhereInput
+  }
+
+  export type PayoutOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -14712,7 +14712,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type PasswordResetOrderByRelationAggregateInput = {
+  export type RoomOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -14720,7 +14720,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type PayoutOrderByRelationAggregateInput = {
+  export type PasswordResetOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -15170,13 +15170,6 @@ export namespace Prisma {
     amount?: SortOrder
   }
 
-  export type UserCreateNestedManyWithoutRoleInput = {
-    create?: XOR<UserCreateWithoutRoleInput, UserUncheckedCreateWithoutRoleInput> | UserCreateWithoutRoleInput[] | UserUncheckedCreateWithoutRoleInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutRoleInput | UserCreateOrConnectWithoutRoleInput[]
-    createMany?: UserCreateManyRoleInputEnvelope
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-  }
-
   export type RoomMemberCreateNestedManyWithoutRoleInput = {
     create?: XOR<RoomMemberCreateWithoutRoleInput, RoomMemberUncheckedCreateWithoutRoleInput> | RoomMemberCreateWithoutRoleInput[] | RoomMemberUncheckedCreateWithoutRoleInput[]
     connectOrCreate?: RoomMemberCreateOrConnectWithoutRoleInput | RoomMemberCreateOrConnectWithoutRoleInput[]
@@ -15184,7 +15177,7 @@ export namespace Prisma {
     connect?: RoomMemberWhereUniqueInput | RoomMemberWhereUniqueInput[]
   }
 
-  export type UserUncheckedCreateNestedManyWithoutRoleInput = {
+  export type UserCreateNestedManyWithoutRoleInput = {
     create?: XOR<UserCreateWithoutRoleInput, UserUncheckedCreateWithoutRoleInput> | UserCreateWithoutRoleInput[] | UserUncheckedCreateWithoutRoleInput[]
     connectOrCreate?: UserCreateOrConnectWithoutRoleInput | UserCreateOrConnectWithoutRoleInput[]
     createMany?: UserCreateManyRoleInputEnvelope
@@ -15198,26 +15191,19 @@ export namespace Prisma {
     connect?: RoomMemberWhereUniqueInput | RoomMemberWhereUniqueInput[]
   }
 
+  export type UserUncheckedCreateNestedManyWithoutRoleInput = {
+    create?: XOR<UserCreateWithoutRoleInput, UserUncheckedCreateWithoutRoleInput> | UserCreateWithoutRoleInput[] | UserUncheckedCreateWithoutRoleInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutRoleInput | UserCreateOrConnectWithoutRoleInput[]
+    createMany?: UserCreateManyRoleInputEnvelope
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
   export type EnumRoleTypeFieldUpdateOperationsInput = {
     set?: $Enums.RoleType
-  }
-
-  export type UserUpdateManyWithoutRoleNestedInput = {
-    create?: XOR<UserCreateWithoutRoleInput, UserUncheckedCreateWithoutRoleInput> | UserCreateWithoutRoleInput[] | UserUncheckedCreateWithoutRoleInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutRoleInput | UserCreateOrConnectWithoutRoleInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutRoleInput | UserUpsertWithWhereUniqueWithoutRoleInput[]
-    createMany?: UserCreateManyRoleInputEnvelope
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutRoleInput | UserUpdateWithWhereUniqueWithoutRoleInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutRoleInput | UserUpdateManyWithWhereWithoutRoleInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
   export type RoomMemberUpdateManyWithoutRoleNestedInput = {
@@ -15234,7 +15220,7 @@ export namespace Prisma {
     deleteMany?: RoomMemberScalarWhereInput | RoomMemberScalarWhereInput[]
   }
 
-  export type UserUncheckedUpdateManyWithoutRoleNestedInput = {
+  export type UserUpdateManyWithoutRoleNestedInput = {
     create?: XOR<UserCreateWithoutRoleInput, UserUncheckedCreateWithoutRoleInput> | UserCreateWithoutRoleInput[] | UserUncheckedCreateWithoutRoleInput[]
     connectOrCreate?: UserCreateOrConnectWithoutRoleInput | UserCreateOrConnectWithoutRoleInput[]
     upsert?: UserUpsertWithWhereUniqueWithoutRoleInput | UserUpsertWithWhereUniqueWithoutRoleInput[]
@@ -15262,17 +15248,25 @@ export namespace Prisma {
     deleteMany?: RoomMemberScalarWhereInput | RoomMemberScalarWhereInput[]
   }
 
-  export type RoleCreateNestedOneWithoutUsersInput = {
-    create?: XOR<RoleCreateWithoutUsersInput, RoleUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: RoleCreateOrConnectWithoutUsersInput
-    connect?: RoleWhereUniqueInput
+  export type UserUncheckedUpdateManyWithoutRoleNestedInput = {
+    create?: XOR<UserCreateWithoutRoleInput, UserUncheckedCreateWithoutRoleInput> | UserCreateWithoutRoleInput[] | UserUncheckedCreateWithoutRoleInput[]
+    connectOrCreate?: UserCreateOrConnectWithoutRoleInput | UserCreateOrConnectWithoutRoleInput[]
+    upsert?: UserUpsertWithWhereUniqueWithoutRoleInput | UserUpsertWithWhereUniqueWithoutRoleInput[]
+    createMany?: UserCreateManyRoleInputEnvelope
+    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+    update?: UserUpdateWithWhereUniqueWithoutRoleInput | UserUpdateWithWhereUniqueWithoutRoleInput[]
+    updateMany?: UserUpdateManyWithWhereWithoutRoleInput | UserUpdateManyWithWhereWithoutRoleInput[]
+    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
-  export type RoomCreateNestedManyWithoutCreated_by_userInput = {
-    create?: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput> | RoomCreateWithoutCreated_by_userInput[] | RoomUncheckedCreateWithoutCreated_by_userInput[]
-    connectOrCreate?: RoomCreateOrConnectWithoutCreated_by_userInput | RoomCreateOrConnectWithoutCreated_by_userInput[]
-    createMany?: RoomCreateManyCreated_by_userInputEnvelope
-    connect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
+  export type PayoutCreateNestedManyWithoutUserInput = {
+    create?: XOR<PayoutCreateWithoutUserInput, PayoutUncheckedCreateWithoutUserInput> | PayoutCreateWithoutUserInput[] | PayoutUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PayoutCreateOrConnectWithoutUserInput | PayoutCreateOrConnectWithoutUserInput[]
+    createMany?: PayoutCreateManyUserInputEnvelope
+    connect?: PayoutWhereUniqueInput | PayoutWhereUniqueInput[]
   }
 
   export type RoomMemberCreateNestedManyWithoutUserInput = {
@@ -15289,11 +15283,11 @@ export namespace Prisma {
     connect?: RoomMessageWhereUniqueInput | RoomMessageWhereUniqueInput[]
   }
 
-  export type PasswordResetCreateNestedManyWithoutUserInput = {
-    create?: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput> | PasswordResetCreateWithoutUserInput[] | PasswordResetUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PasswordResetCreateOrConnectWithoutUserInput | PasswordResetCreateOrConnectWithoutUserInput[]
-    createMany?: PasswordResetCreateManyUserInputEnvelope
-    connect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+  export type RoomCreateNestedManyWithoutCreated_by_userInput = {
+    create?: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput> | RoomCreateWithoutCreated_by_userInput[] | RoomUncheckedCreateWithoutCreated_by_userInput[]
+    connectOrCreate?: RoomCreateOrConnectWithoutCreated_by_userInput | RoomCreateOrConnectWithoutCreated_by_userInput[]
+    createMany?: RoomCreateManyCreated_by_userInputEnvelope
+    connect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
   }
 
   export type TransactionCreateNestedManyWithoutOwnerInput = {
@@ -15310,18 +15304,24 @@ export namespace Prisma {
     connect?: TransactionWhereUniqueInput | TransactionWhereUniqueInput[]
   }
 
-  export type PayoutCreateNestedManyWithoutUserInput = {
+  export type PasswordResetCreateNestedManyWithoutUserInput = {
+    create?: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput> | PasswordResetCreateWithoutUserInput[] | PasswordResetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PasswordResetCreateOrConnectWithoutUserInput | PasswordResetCreateOrConnectWithoutUserInput[]
+    createMany?: PasswordResetCreateManyUserInputEnvelope
+    connect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+  }
+
+  export type RoleCreateNestedOneWithoutUsersInput = {
+    create?: XOR<RoleCreateWithoutUsersInput, RoleUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: RoleCreateOrConnectWithoutUsersInput
+    connect?: RoleWhereUniqueInput
+  }
+
+  export type PayoutUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<PayoutCreateWithoutUserInput, PayoutUncheckedCreateWithoutUserInput> | PayoutCreateWithoutUserInput[] | PayoutUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PayoutCreateOrConnectWithoutUserInput | PayoutCreateOrConnectWithoutUserInput[]
     createMany?: PayoutCreateManyUserInputEnvelope
     connect?: PayoutWhereUniqueInput | PayoutWhereUniqueInput[]
-  }
-
-  export type RoomUncheckedCreateNestedManyWithoutCreated_by_userInput = {
-    create?: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput> | RoomCreateWithoutCreated_by_userInput[] | RoomUncheckedCreateWithoutCreated_by_userInput[]
-    connectOrCreate?: RoomCreateOrConnectWithoutCreated_by_userInput | RoomCreateOrConnectWithoutCreated_by_userInput[]
-    createMany?: RoomCreateManyCreated_by_userInputEnvelope
-    connect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
   }
 
   export type RoomMemberUncheckedCreateNestedManyWithoutUserInput = {
@@ -15338,11 +15338,11 @@ export namespace Prisma {
     connect?: RoomMessageWhereUniqueInput | RoomMessageWhereUniqueInput[]
   }
 
-  export type PasswordResetUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput> | PasswordResetCreateWithoutUserInput[] | PasswordResetUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PasswordResetCreateOrConnectWithoutUserInput | PasswordResetCreateOrConnectWithoutUserInput[]
-    createMany?: PasswordResetCreateManyUserInputEnvelope
-    connect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+  export type RoomUncheckedCreateNestedManyWithoutCreated_by_userInput = {
+    create?: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput> | RoomCreateWithoutCreated_by_userInput[] | RoomUncheckedCreateWithoutCreated_by_userInput[]
+    connectOrCreate?: RoomCreateOrConnectWithoutCreated_by_userInput | RoomCreateOrConnectWithoutCreated_by_userInput[]
+    createMany?: RoomCreateManyCreated_by_userInputEnvelope
+    connect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
   }
 
   export type TransactionUncheckedCreateNestedManyWithoutOwnerInput = {
@@ -15359,33 +15359,25 @@ export namespace Prisma {
     connect?: TransactionWhereUniqueInput | TransactionWhereUniqueInput[]
   }
 
-  export type PayoutUncheckedCreateNestedManyWithoutUserInput = {
+  export type PasswordResetUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput> | PasswordResetCreateWithoutUserInput[] | PasswordResetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PasswordResetCreateOrConnectWithoutUserInput | PasswordResetCreateOrConnectWithoutUserInput[]
+    createMany?: PasswordResetCreateManyUserInputEnvelope
+    connect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+  }
+
+  export type PayoutUpdateManyWithoutUserNestedInput = {
     create?: XOR<PayoutCreateWithoutUserInput, PayoutUncheckedCreateWithoutUserInput> | PayoutCreateWithoutUserInput[] | PayoutUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PayoutCreateOrConnectWithoutUserInput | PayoutCreateOrConnectWithoutUserInput[]
+    upsert?: PayoutUpsertWithWhereUniqueWithoutUserInput | PayoutUpsertWithWhereUniqueWithoutUserInput[]
     createMany?: PayoutCreateManyUserInputEnvelope
+    set?: PayoutWhereUniqueInput | PayoutWhereUniqueInput[]
+    disconnect?: PayoutWhereUniqueInput | PayoutWhereUniqueInput[]
+    delete?: PayoutWhereUniqueInput | PayoutWhereUniqueInput[]
     connect?: PayoutWhereUniqueInput | PayoutWhereUniqueInput[]
-  }
-
-  export type RoleUpdateOneRequiredWithoutUsersNestedInput = {
-    create?: XOR<RoleCreateWithoutUsersInput, RoleUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: RoleCreateOrConnectWithoutUsersInput
-    upsert?: RoleUpsertWithoutUsersInput
-    connect?: RoleWhereUniqueInput
-    update?: XOR<XOR<RoleUpdateToOneWithWhereWithoutUsersInput, RoleUpdateWithoutUsersInput>, RoleUncheckedUpdateWithoutUsersInput>
-  }
-
-  export type RoomUpdateManyWithoutCreated_by_userNestedInput = {
-    create?: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput> | RoomCreateWithoutCreated_by_userInput[] | RoomUncheckedCreateWithoutCreated_by_userInput[]
-    connectOrCreate?: RoomCreateOrConnectWithoutCreated_by_userInput | RoomCreateOrConnectWithoutCreated_by_userInput[]
-    upsert?: RoomUpsertWithWhereUniqueWithoutCreated_by_userInput | RoomUpsertWithWhereUniqueWithoutCreated_by_userInput[]
-    createMany?: RoomCreateManyCreated_by_userInputEnvelope
-    set?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
-    disconnect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
-    delete?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
-    connect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
-    update?: RoomUpdateWithWhereUniqueWithoutCreated_by_userInput | RoomUpdateWithWhereUniqueWithoutCreated_by_userInput[]
-    updateMany?: RoomUpdateManyWithWhereWithoutCreated_by_userInput | RoomUpdateManyWithWhereWithoutCreated_by_userInput[]
-    deleteMany?: RoomScalarWhereInput | RoomScalarWhereInput[]
+    update?: PayoutUpdateWithWhereUniqueWithoutUserInput | PayoutUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PayoutUpdateManyWithWhereWithoutUserInput | PayoutUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PayoutScalarWhereInput | PayoutScalarWhereInput[]
   }
 
   export type RoomMemberUpdateManyWithoutUserNestedInput = {
@@ -15416,18 +15408,18 @@ export namespace Prisma {
     deleteMany?: RoomMessageScalarWhereInput | RoomMessageScalarWhereInput[]
   }
 
-  export type PasswordResetUpdateManyWithoutUserNestedInput = {
-    create?: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput> | PasswordResetCreateWithoutUserInput[] | PasswordResetUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PasswordResetCreateOrConnectWithoutUserInput | PasswordResetCreateOrConnectWithoutUserInput[]
-    upsert?: PasswordResetUpsertWithWhereUniqueWithoutUserInput | PasswordResetUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: PasswordResetCreateManyUserInputEnvelope
-    set?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
-    disconnect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
-    delete?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
-    connect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
-    update?: PasswordResetUpdateWithWhereUniqueWithoutUserInput | PasswordResetUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: PasswordResetUpdateManyWithWhereWithoutUserInput | PasswordResetUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: PasswordResetScalarWhereInput | PasswordResetScalarWhereInput[]
+  export type RoomUpdateManyWithoutCreated_by_userNestedInput = {
+    create?: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput> | RoomCreateWithoutCreated_by_userInput[] | RoomUncheckedCreateWithoutCreated_by_userInput[]
+    connectOrCreate?: RoomCreateOrConnectWithoutCreated_by_userInput | RoomCreateOrConnectWithoutCreated_by_userInput[]
+    upsert?: RoomUpsertWithWhereUniqueWithoutCreated_by_userInput | RoomUpsertWithWhereUniqueWithoutCreated_by_userInput[]
+    createMany?: RoomCreateManyCreated_by_userInputEnvelope
+    set?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
+    disconnect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
+    delete?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
+    connect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
+    update?: RoomUpdateWithWhereUniqueWithoutCreated_by_userInput | RoomUpdateWithWhereUniqueWithoutCreated_by_userInput[]
+    updateMany?: RoomUpdateManyWithWhereWithoutCreated_by_userInput | RoomUpdateManyWithWhereWithoutCreated_by_userInput[]
+    deleteMany?: RoomScalarWhereInput | RoomScalarWhereInput[]
   }
 
   export type TransactionUpdateManyWithoutOwnerNestedInput = {
@@ -15458,7 +15450,29 @@ export namespace Prisma {
     deleteMany?: TransactionScalarWhereInput | TransactionScalarWhereInput[]
   }
 
-  export type PayoutUpdateManyWithoutUserNestedInput = {
+  export type PasswordResetUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput> | PasswordResetCreateWithoutUserInput[] | PasswordResetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PasswordResetCreateOrConnectWithoutUserInput | PasswordResetCreateOrConnectWithoutUserInput[]
+    upsert?: PasswordResetUpsertWithWhereUniqueWithoutUserInput | PasswordResetUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PasswordResetCreateManyUserInputEnvelope
+    set?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+    disconnect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+    delete?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+    connect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+    update?: PasswordResetUpdateWithWhereUniqueWithoutUserInput | PasswordResetUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PasswordResetUpdateManyWithWhereWithoutUserInput | PasswordResetUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PasswordResetScalarWhereInput | PasswordResetScalarWhereInput[]
+  }
+
+  export type RoleUpdateOneRequiredWithoutUsersNestedInput = {
+    create?: XOR<RoleCreateWithoutUsersInput, RoleUncheckedCreateWithoutUsersInput>
+    connectOrCreate?: RoleCreateOrConnectWithoutUsersInput
+    upsert?: RoleUpsertWithoutUsersInput
+    connect?: RoleWhereUniqueInput
+    update?: XOR<XOR<RoleUpdateToOneWithWhereWithoutUsersInput, RoleUpdateWithoutUsersInput>, RoleUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type PayoutUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<PayoutCreateWithoutUserInput, PayoutUncheckedCreateWithoutUserInput> | PayoutCreateWithoutUserInput[] | PayoutUncheckedCreateWithoutUserInput[]
     connectOrCreate?: PayoutCreateOrConnectWithoutUserInput | PayoutCreateOrConnectWithoutUserInput[]
     upsert?: PayoutUpsertWithWhereUniqueWithoutUserInput | PayoutUpsertWithWhereUniqueWithoutUserInput[]
@@ -15470,20 +15484,6 @@ export namespace Prisma {
     update?: PayoutUpdateWithWhereUniqueWithoutUserInput | PayoutUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: PayoutUpdateManyWithWhereWithoutUserInput | PayoutUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: PayoutScalarWhereInput | PayoutScalarWhereInput[]
-  }
-
-  export type RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput = {
-    create?: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput> | RoomCreateWithoutCreated_by_userInput[] | RoomUncheckedCreateWithoutCreated_by_userInput[]
-    connectOrCreate?: RoomCreateOrConnectWithoutCreated_by_userInput | RoomCreateOrConnectWithoutCreated_by_userInput[]
-    upsert?: RoomUpsertWithWhereUniqueWithoutCreated_by_userInput | RoomUpsertWithWhereUniqueWithoutCreated_by_userInput[]
-    createMany?: RoomCreateManyCreated_by_userInputEnvelope
-    set?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
-    disconnect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
-    delete?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
-    connect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
-    update?: RoomUpdateWithWhereUniqueWithoutCreated_by_userInput | RoomUpdateWithWhereUniqueWithoutCreated_by_userInput[]
-    updateMany?: RoomUpdateManyWithWhereWithoutCreated_by_userInput | RoomUpdateManyWithWhereWithoutCreated_by_userInput[]
-    deleteMany?: RoomScalarWhereInput | RoomScalarWhereInput[]
   }
 
   export type RoomMemberUncheckedUpdateManyWithoutUserNestedInput = {
@@ -15514,18 +15514,18 @@ export namespace Prisma {
     deleteMany?: RoomMessageScalarWhereInput | RoomMessageScalarWhereInput[]
   }
 
-  export type PasswordResetUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput> | PasswordResetCreateWithoutUserInput[] | PasswordResetUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PasswordResetCreateOrConnectWithoutUserInput | PasswordResetCreateOrConnectWithoutUserInput[]
-    upsert?: PasswordResetUpsertWithWhereUniqueWithoutUserInput | PasswordResetUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: PasswordResetCreateManyUserInputEnvelope
-    set?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
-    disconnect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
-    delete?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
-    connect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
-    update?: PasswordResetUpdateWithWhereUniqueWithoutUserInput | PasswordResetUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: PasswordResetUpdateManyWithWhereWithoutUserInput | PasswordResetUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: PasswordResetScalarWhereInput | PasswordResetScalarWhereInput[]
+  export type RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput = {
+    create?: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput> | RoomCreateWithoutCreated_by_userInput[] | RoomUncheckedCreateWithoutCreated_by_userInput[]
+    connectOrCreate?: RoomCreateOrConnectWithoutCreated_by_userInput | RoomCreateOrConnectWithoutCreated_by_userInput[]
+    upsert?: RoomUpsertWithWhereUniqueWithoutCreated_by_userInput | RoomUpsertWithWhereUniqueWithoutCreated_by_userInput[]
+    createMany?: RoomCreateManyCreated_by_userInputEnvelope
+    set?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
+    disconnect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
+    delete?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
+    connect?: RoomWhereUniqueInput | RoomWhereUniqueInput[]
+    update?: RoomUpdateWithWhereUniqueWithoutCreated_by_userInput | RoomUpdateWithWhereUniqueWithoutCreated_by_userInput[]
+    updateMany?: RoomUpdateManyWithWhereWithoutCreated_by_userInput | RoomUpdateManyWithWhereWithoutCreated_by_userInput[]
+    deleteMany?: RoomScalarWhereInput | RoomScalarWhereInput[]
   }
 
   export type TransactionUncheckedUpdateManyWithoutOwnerNestedInput = {
@@ -15556,18 +15556,18 @@ export namespace Prisma {
     deleteMany?: TransactionScalarWhereInput | TransactionScalarWhereInput[]
   }
 
-  export type PayoutUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<PayoutCreateWithoutUserInput, PayoutUncheckedCreateWithoutUserInput> | PayoutCreateWithoutUserInput[] | PayoutUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: PayoutCreateOrConnectWithoutUserInput | PayoutCreateOrConnectWithoutUserInput[]
-    upsert?: PayoutUpsertWithWhereUniqueWithoutUserInput | PayoutUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: PayoutCreateManyUserInputEnvelope
-    set?: PayoutWhereUniqueInput | PayoutWhereUniqueInput[]
-    disconnect?: PayoutWhereUniqueInput | PayoutWhereUniqueInput[]
-    delete?: PayoutWhereUniqueInput | PayoutWhereUniqueInput[]
-    connect?: PayoutWhereUniqueInput | PayoutWhereUniqueInput[]
-    update?: PayoutUpdateWithWhereUniqueWithoutUserInput | PayoutUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: PayoutUpdateManyWithWhereWithoutUserInput | PayoutUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: PayoutScalarWhereInput | PayoutScalarWhereInput[]
+  export type PasswordResetUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput> | PasswordResetCreateWithoutUserInput[] | PasswordResetUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: PasswordResetCreateOrConnectWithoutUserInput | PasswordResetCreateOrConnectWithoutUserInput[]
+    upsert?: PasswordResetUpsertWithWhereUniqueWithoutUserInput | PasswordResetUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: PasswordResetCreateManyUserInputEnvelope
+    set?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+    disconnect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+    delete?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+    connect?: PasswordResetWhereUniqueInput | PasswordResetWhereUniqueInput[]
+    update?: PasswordResetUpdateWithWhereUniqueWithoutUserInput | PasswordResetUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: PasswordResetUpdateManyWithWhereWithoutUserInput | PasswordResetUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: PasswordResetScalarWhereInput | PasswordResetScalarWhereInput[]
   }
 
   export type GroupCreatebenefitInput = {
@@ -15693,12 +15693,6 @@ export namespace Prisma {
     update?: XOR<XOR<GroupUpdateToOneWithWhereWithoutAssetsInput, GroupUpdateWithoutAssetsInput>, GroupUncheckedUpdateWithoutAssetsInput>
   }
 
-  export type UserCreateNestedOneWithoutRoomInput = {
-    create?: XOR<UserCreateWithoutRoomInput, UserUncheckedCreateWithoutRoomInput>
-    connectOrCreate?: UserCreateOrConnectWithoutRoomInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type RoomMemberCreateNestedManyWithoutRoomInput = {
     create?: XOR<RoomMemberCreateWithoutRoomInput, RoomMemberUncheckedCreateWithoutRoomInput> | RoomMemberCreateWithoutRoomInput[] | RoomMemberUncheckedCreateWithoutRoomInput[]
     connectOrCreate?: RoomMemberCreateOrConnectWithoutRoomInput | RoomMemberCreateOrConnectWithoutRoomInput[]
@@ -15711,6 +15705,12 @@ export namespace Prisma {
     connectOrCreate?: RoomMessageCreateOrConnectWithoutRoomInput | RoomMessageCreateOrConnectWithoutRoomInput[]
     createMany?: RoomMessageCreateManyRoomInputEnvelope
     connect?: RoomMessageWhereUniqueInput | RoomMessageWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedOneWithoutRoomInput = {
+    create?: XOR<UserCreateWithoutRoomInput, UserUncheckedCreateWithoutRoomInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRoomInput
+    connect?: UserWhereUniqueInput
   }
 
   export type RoomMemberUncheckedCreateNestedManyWithoutRoomInput = {
@@ -15733,14 +15733,6 @@ export namespace Prisma {
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
-  }
-
-  export type UserUpdateOneRequiredWithoutRoomNestedInput = {
-    create?: XOR<UserCreateWithoutRoomInput, UserUncheckedCreateWithoutRoomInput>
-    connectOrCreate?: UserCreateOrConnectWithoutRoomInput
-    upsert?: UserUpsertWithoutRoomInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRoomInput, UserUpdateWithoutRoomInput>, UserUncheckedUpdateWithoutRoomInput>
   }
 
   export type RoomMemberUpdateManyWithoutRoomNestedInput = {
@@ -15771,6 +15763,14 @@ export namespace Prisma {
     deleteMany?: RoomMessageScalarWhereInput | RoomMessageScalarWhereInput[]
   }
 
+  export type UserUpdateOneRequiredWithoutRoomNestedInput = {
+    create?: XOR<UserCreateWithoutRoomInput, UserUncheckedCreateWithoutRoomInput>
+    connectOrCreate?: UserCreateOrConnectWithoutRoomInput
+    upsert?: UserUpsertWithoutRoomInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRoomInput, UserUpdateWithoutRoomInput>, UserUncheckedUpdateWithoutRoomInput>
+  }
+
   export type RoomMemberUncheckedUpdateManyWithoutRoomNestedInput = {
     create?: XOR<RoomMemberCreateWithoutRoomInput, RoomMemberUncheckedCreateWithoutRoomInput> | RoomMemberCreateWithoutRoomInput[] | RoomMemberUncheckedCreateWithoutRoomInput[]
     connectOrCreate?: RoomMemberCreateOrConnectWithoutRoomInput | RoomMemberCreateOrConnectWithoutRoomInput[]
@@ -15799,6 +15799,12 @@ export namespace Prisma {
     deleteMany?: RoomMessageScalarWhereInput | RoomMessageScalarWhereInput[]
   }
 
+  export type RoleCreateNestedOneWithoutRoom_member_rolesInput = {
+    create?: XOR<RoleCreateWithoutRoom_member_rolesInput, RoleUncheckedCreateWithoutRoom_member_rolesInput>
+    connectOrCreate?: RoleCreateOrConnectWithoutRoom_member_rolesInput
+    connect?: RoleWhereUniqueInput
+  }
+
   export type RoomCreateNestedOneWithoutMembersInput = {
     create?: XOR<RoomCreateWithoutMembersInput, RoomUncheckedCreateWithoutMembersInput>
     connectOrCreate?: RoomCreateOrConnectWithoutMembersInput
@@ -15811,10 +15817,12 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type RoleCreateNestedOneWithoutRoom_member_rolesInput = {
+  export type RoleUpdateOneRequiredWithoutRoom_member_rolesNestedInput = {
     create?: XOR<RoleCreateWithoutRoom_member_rolesInput, RoleUncheckedCreateWithoutRoom_member_rolesInput>
     connectOrCreate?: RoleCreateOrConnectWithoutRoom_member_rolesInput
+    upsert?: RoleUpsertWithoutRoom_member_rolesInput
     connect?: RoleWhereUniqueInput
+    update?: XOR<XOR<RoleUpdateToOneWithWhereWithoutRoom_member_rolesInput, RoleUpdateWithoutRoom_member_rolesInput>, RoleUncheckedUpdateWithoutRoom_member_rolesInput>
   }
 
   export type RoomUpdateOneRequiredWithoutMembersNestedInput = {
@@ -15831,14 +15839,6 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutRoom_membersInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRoom_membersInput, UserUpdateWithoutRoom_membersInput>, UserUncheckedUpdateWithoutRoom_membersInput>
-  }
-
-  export type RoleUpdateOneRequiredWithoutRoom_member_rolesNestedInput = {
-    create?: XOR<RoleCreateWithoutRoom_member_rolesInput, RoleUncheckedCreateWithoutRoom_member_rolesInput>
-    connectOrCreate?: RoleCreateOrConnectWithoutRoom_member_rolesInput
-    upsert?: RoleUpsertWithoutRoom_member_rolesInput
-    connect?: RoleWhereUniqueInput
-    update?: XOR<XOR<RoleUpdateToOneWithWhereWithoutRoom_member_rolesInput, RoleUpdateWithoutRoom_member_rolesInput>, RoleUncheckedUpdateWithoutRoom_member_rolesInput>
   }
 
   export type RoomCreateNestedOneWithoutMessagesInput = {
@@ -15887,6 +15887,12 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutPassword_resetsInput, UserUpdateWithoutPassword_resetsInput>, UserUncheckedUpdateWithoutPassword_resetsInput>
   }
 
+  export type GroupCreateNestedOneWithoutTransactionsInput = {
+    create?: XOR<GroupCreateWithoutTransactionsInput, GroupUncheckedCreateWithoutTransactionsInput>
+    connectOrCreate?: GroupCreateOrConnectWithoutTransactionsInput
+    connect?: GroupWhereUniqueInput
+  }
+
   export type UserCreateNestedOneWithoutOwner_transactionsInput = {
     create?: XOR<UserCreateWithoutOwner_transactionsInput, UserUncheckedCreateWithoutOwner_transactionsInput>
     connectOrCreate?: UserCreateOrConnectWithoutOwner_transactionsInput
@@ -15899,14 +15905,16 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type GroupCreateNestedOneWithoutTransactionsInput = {
-    create?: XOR<GroupCreateWithoutTransactionsInput, GroupUncheckedCreateWithoutTransactionsInput>
-    connectOrCreate?: GroupCreateOrConnectWithoutTransactionsInput
-    connect?: GroupWhereUniqueInput
-  }
-
   export type NullableEnumTransactionTypeFieldUpdateOperationsInput = {
     set?: $Enums.TransactionType | null
+  }
+
+  export type GroupUpdateOneRequiredWithoutTransactionsNestedInput = {
+    create?: XOR<GroupCreateWithoutTransactionsInput, GroupUncheckedCreateWithoutTransactionsInput>
+    connectOrCreate?: GroupCreateOrConnectWithoutTransactionsInput
+    upsert?: GroupUpsertWithoutTransactionsInput
+    connect?: GroupWhereUniqueInput
+    update?: XOR<XOR<GroupUpdateToOneWithWhereWithoutTransactionsInput, GroupUpdateWithoutTransactionsInput>, GroupUncheckedUpdateWithoutTransactionsInput>
   }
 
   export type UserUpdateOneRequiredWithoutOwner_transactionsNestedInput = {
@@ -15923,14 +15931,6 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutMember_transactionsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutMember_transactionsInput, UserUpdateWithoutMember_transactionsInput>, UserUncheckedUpdateWithoutMember_transactionsInput>
-  }
-
-  export type GroupUpdateOneRequiredWithoutTransactionsNestedInput = {
-    create?: XOR<GroupCreateWithoutTransactionsInput, GroupUncheckedCreateWithoutTransactionsInput>
-    connectOrCreate?: GroupCreateOrConnectWithoutTransactionsInput
-    upsert?: GroupUpsertWithoutTransactionsInput
-    connect?: GroupWhereUniqueInput
-    update?: XOR<XOR<GroupUpdateToOneWithWhereWithoutTransactionsInput, GroupUpdateWithoutTransactionsInput>, GroupUncheckedUpdateWithoutTransactionsInput>
   }
 
   export type UserCreateNestedOneWithoutPayoutsInput = {
@@ -16164,46 +16164,6 @@ export namespace Prisma {
     _max?: NestedEnumTransactionTypeNullableFilter<$PrismaModel>
   }
 
-  export type UserCreateWithoutRoleInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    photo: string
-    room?: RoomCreateNestedManyWithoutCreated_by_userInput
-    room_members?: RoomMemberCreateNestedManyWithoutUserInput
-    room_message?: RoomMessageCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
-    owner_transactions?: TransactionCreateNestedManyWithoutOwnerInput
-    member_transactions?: TransactionCreateNestedManyWithoutUserInput
-    payouts?: PayoutCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutRoleInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    photo: string
-    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
-    room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
-    room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
-    owner_transactions?: TransactionUncheckedCreateNestedManyWithoutOwnerInput
-    member_transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
-    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutRoleInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutRoleInput, UserUncheckedCreateWithoutRoleInput>
-  }
-
-  export type UserCreateManyRoleInputEnvelope = {
-    data: UserCreateManyRoleInput | UserCreateManyRoleInput[]
-    skipDuplicates?: boolean
-  }
-
   export type RoomMemberCreateWithoutRoleInput = {
     id?: string
     joined_at?: Date | string
@@ -16226,6 +16186,73 @@ export namespace Prisma {
   export type RoomMemberCreateManyRoleInputEnvelope = {
     data: RoomMemberCreateManyRoleInput | RoomMemberCreateManyRoleInput[]
     skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutRoleInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    photo: string
+    payouts?: PayoutCreateNestedManyWithoutUserInput
+    room_members?: RoomMemberCreateNestedManyWithoutUserInput
+    room_message?: RoomMessageCreateNestedManyWithoutUserInput
+    room?: RoomCreateNestedManyWithoutCreated_by_userInput
+    owner_transactions?: TransactionCreateNestedManyWithoutOwnerInput
+    member_transactions?: TransactionCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutRoleInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    photo: string
+    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
+    room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
+    room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
+    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
+    owner_transactions?: TransactionUncheckedCreateNestedManyWithoutOwnerInput
+    member_transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutRoleInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutRoleInput, UserUncheckedCreateWithoutRoleInput>
+  }
+
+  export type UserCreateManyRoleInputEnvelope = {
+    data: UserCreateManyRoleInput | UserCreateManyRoleInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type RoomMemberUpsertWithWhereUniqueWithoutRoleInput = {
+    where: RoomMemberWhereUniqueInput
+    update: XOR<RoomMemberUpdateWithoutRoleInput, RoomMemberUncheckedUpdateWithoutRoleInput>
+    create: XOR<RoomMemberCreateWithoutRoleInput, RoomMemberUncheckedCreateWithoutRoleInput>
+  }
+
+  export type RoomMemberUpdateWithWhereUniqueWithoutRoleInput = {
+    where: RoomMemberWhereUniqueInput
+    data: XOR<RoomMemberUpdateWithoutRoleInput, RoomMemberUncheckedUpdateWithoutRoleInput>
+  }
+
+  export type RoomMemberUpdateManyWithWhereWithoutRoleInput = {
+    where: RoomMemberScalarWhereInput
+    data: XOR<RoomMemberUpdateManyMutationInput, RoomMemberUncheckedUpdateManyWithoutRoleInput>
+  }
+
+  export type RoomMemberScalarWhereInput = {
+    AND?: RoomMemberScalarWhereInput | RoomMemberScalarWhereInput[]
+    OR?: RoomMemberScalarWhereInput[]
+    NOT?: RoomMemberScalarWhereInput | RoomMemberScalarWhereInput[]
+    id?: StringFilter<"RoomMember"> | string
+    room_id?: StringFilter<"RoomMember"> | string
+    user_id?: StringFilter<"RoomMember"> | string
+    role_id?: StringFilter<"RoomMember"> | string
+    joined_at?: DateTimeFilter<"RoomMember"> | Date | string
   }
 
   export type UserUpsertWithWhereUniqueWithoutRoleInput = {
@@ -16256,83 +16283,43 @@ export namespace Prisma {
     role_id?: StringFilter<"User"> | string
   }
 
-  export type RoomMemberUpsertWithWhereUniqueWithoutRoleInput = {
-    where: RoomMemberWhereUniqueInput
-    update: XOR<RoomMemberUpdateWithoutRoleInput, RoomMemberUncheckedUpdateWithoutRoleInput>
-    create: XOR<RoomMemberCreateWithoutRoleInput, RoomMemberUncheckedCreateWithoutRoleInput>
-  }
-
-  export type RoomMemberUpdateWithWhereUniqueWithoutRoleInput = {
-    where: RoomMemberWhereUniqueInput
-    data: XOR<RoomMemberUpdateWithoutRoleInput, RoomMemberUncheckedUpdateWithoutRoleInput>
-  }
-
-  export type RoomMemberUpdateManyWithWhereWithoutRoleInput = {
-    where: RoomMemberScalarWhereInput
-    data: XOR<RoomMemberUpdateManyMutationInput, RoomMemberUncheckedUpdateManyWithoutRoleInput>
-  }
-
-  export type RoomMemberScalarWhereInput = {
-    AND?: RoomMemberScalarWhereInput | RoomMemberScalarWhereInput[]
-    OR?: RoomMemberScalarWhereInput[]
-    NOT?: RoomMemberScalarWhereInput | RoomMemberScalarWhereInput[]
-    id?: StringFilter<"RoomMember"> | string
-    room_id?: StringFilter<"RoomMember"> | string
-    user_id?: StringFilter<"RoomMember"> | string
-    role_id?: StringFilter<"RoomMember"> | string
-    joined_at?: DateTimeFilter<"RoomMember"> | Date | string
-  }
-
-  export type RoleCreateWithoutUsersInput = {
+  export type PayoutCreateWithoutUserInput = {
     id?: string
-    role: $Enums.RoleType
-    room_member_roles?: RoomMemberCreateNestedManyWithoutRoleInput
-  }
-
-  export type RoleUncheckedCreateWithoutUsersInput = {
-    id?: string
-    role: $Enums.RoleType
-    room_member_roles?: RoomMemberUncheckedCreateNestedManyWithoutRoleInput
-  }
-
-  export type RoleCreateOrConnectWithoutUsersInput = {
-    where: RoleWhereUniqueInput
-    create: XOR<RoleCreateWithoutUsersInput, RoleUncheckedCreateWithoutUsersInput>
-  }
-
-  export type RoomCreateWithoutCreated_by_userInput = {
-    id?: string
-    name?: string | null
-    is_group?: boolean
+    amount: number
+    bank_name: string
+    bank_account_number: string
+    bank_account_name: string
+    status?: $Enums.TransactionType | null
+    proof?: string | null
     created_at?: Date | string
-    members?: RoomMemberCreateNestedManyWithoutRoomInput
-    messages?: RoomMessageCreateNestedManyWithoutRoomInput
   }
 
-  export type RoomUncheckedCreateWithoutCreated_by_userInput = {
+  export type PayoutUncheckedCreateWithoutUserInput = {
     id?: string
-    name?: string | null
-    is_group?: boolean
+    amount: number
+    bank_name: string
+    bank_account_number: string
+    bank_account_name: string
+    status?: $Enums.TransactionType | null
+    proof?: string | null
     created_at?: Date | string
-    members?: RoomMemberUncheckedCreateNestedManyWithoutRoomInput
-    messages?: RoomMessageUncheckedCreateNestedManyWithoutRoomInput
   }
 
-  export type RoomCreateOrConnectWithoutCreated_by_userInput = {
-    where: RoomWhereUniqueInput
-    create: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput>
+  export type PayoutCreateOrConnectWithoutUserInput = {
+    where: PayoutWhereUniqueInput
+    create: XOR<PayoutCreateWithoutUserInput, PayoutUncheckedCreateWithoutUserInput>
   }
 
-  export type RoomCreateManyCreated_by_userInputEnvelope = {
-    data: RoomCreateManyCreated_by_userInput | RoomCreateManyCreated_by_userInput[]
+  export type PayoutCreateManyUserInputEnvelope = {
+    data: PayoutCreateManyUserInput | PayoutCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
   export type RoomMemberCreateWithoutUserInput = {
     id?: string
     joined_at?: Date | string
-    room: RoomCreateNestedOneWithoutMembersInput
     role: RoleCreateNestedOneWithoutRoom_member_rolesInput
+    room: RoomCreateNestedOneWithoutMembersInput
   }
 
   export type RoomMemberUncheckedCreateWithoutUserInput = {
@@ -16378,23 +16365,31 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type PasswordResetCreateWithoutUserInput = {
+  export type RoomCreateWithoutCreated_by_userInput = {
     id?: string
-    token: string
+    name?: string | null
+    is_group?: boolean
+    created_at?: Date | string
+    members?: RoomMemberCreateNestedManyWithoutRoomInput
+    messages?: RoomMessageCreateNestedManyWithoutRoomInput
   }
 
-  export type PasswordResetUncheckedCreateWithoutUserInput = {
+  export type RoomUncheckedCreateWithoutCreated_by_userInput = {
     id?: string
-    token: string
+    name?: string | null
+    is_group?: boolean
+    created_at?: Date | string
+    members?: RoomMemberUncheckedCreateNestedManyWithoutRoomInput
+    messages?: RoomMessageUncheckedCreateNestedManyWithoutRoomInput
   }
 
-  export type PasswordResetCreateOrConnectWithoutUserInput = {
-    where: PasswordResetWhereUniqueInput
-    create: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput>
+  export type RoomCreateOrConnectWithoutCreated_by_userInput = {
+    where: RoomWhereUniqueInput
+    create: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput>
   }
 
-  export type PasswordResetCreateManyUserInputEnvelope = {
-    data: PasswordResetCreateManyUserInput | PasswordResetCreateManyUserInput[]
+  export type RoomCreateManyCreated_by_userInputEnvelope = {
+    data: RoomCreateManyCreated_by_userInput | RoomCreateManyCreated_by_userInput[]
     skipDuplicates?: boolean
   }
 
@@ -16403,8 +16398,8 @@ export namespace Prisma {
     price: number
     type?: $Enums.TransactionType | null
     created_at?: Date | string
-    user: UserCreateNestedOneWithoutMember_transactionsInput
     group: GroupCreateNestedOneWithoutTransactionsInput
+    user: UserCreateNestedOneWithoutMember_transactionsInput
   }
 
   export type TransactionUncheckedCreateWithoutOwnerInput = {
@@ -16431,8 +16426,8 @@ export namespace Prisma {
     price: number
     type?: $Enums.TransactionType | null
     created_at?: Date | string
-    owner: UserCreateNestedOneWithoutOwner_transactionsInput
     group: GroupCreateNestedOneWithoutTransactionsInput
+    owner: UserCreateNestedOneWithoutOwner_transactionsInput
   }
 
   export type TransactionUncheckedCreateWithoutUserInput = {
@@ -16454,86 +16449,72 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type PayoutCreateWithoutUserInput = {
+  export type PasswordResetCreateWithoutUserInput = {
     id?: string
-    amount: number
-    bank_name: string
-    bank_account_number: string
-    bank_account_name: string
-    status?: $Enums.TransactionType | null
-    proof?: string | null
-    created_at?: Date | string
+    token: string
   }
 
-  export type PayoutUncheckedCreateWithoutUserInput = {
+  export type PasswordResetUncheckedCreateWithoutUserInput = {
     id?: string
-    amount: number
-    bank_name: string
-    bank_account_number: string
-    bank_account_name: string
-    status?: $Enums.TransactionType | null
-    proof?: string | null
-    created_at?: Date | string
+    token: string
   }
 
-  export type PayoutCreateOrConnectWithoutUserInput = {
-    where: PayoutWhereUniqueInput
-    create: XOR<PayoutCreateWithoutUserInput, PayoutUncheckedCreateWithoutUserInput>
+  export type PasswordResetCreateOrConnectWithoutUserInput = {
+    where: PasswordResetWhereUniqueInput
+    create: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput>
   }
 
-  export type PayoutCreateManyUserInputEnvelope = {
-    data: PayoutCreateManyUserInput | PayoutCreateManyUserInput[]
+  export type PasswordResetCreateManyUserInputEnvelope = {
+    data: PasswordResetCreateManyUserInput | PasswordResetCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
-  export type RoleUpsertWithoutUsersInput = {
-    update: XOR<RoleUpdateWithoutUsersInput, RoleUncheckedUpdateWithoutUsersInput>
+  export type RoleCreateWithoutUsersInput = {
+    id?: string
+    role: $Enums.RoleType
+    room_member_roles?: RoomMemberCreateNestedManyWithoutRoleInput
+  }
+
+  export type RoleUncheckedCreateWithoutUsersInput = {
+    id?: string
+    role: $Enums.RoleType
+    room_member_roles?: RoomMemberUncheckedCreateNestedManyWithoutRoleInput
+  }
+
+  export type RoleCreateOrConnectWithoutUsersInput = {
+    where: RoleWhereUniqueInput
     create: XOR<RoleCreateWithoutUsersInput, RoleUncheckedCreateWithoutUsersInput>
-    where?: RoleWhereInput
   }
 
-  export type RoleUpdateToOneWithWhereWithoutUsersInput = {
-    where?: RoleWhereInput
-    data: XOR<RoleUpdateWithoutUsersInput, RoleUncheckedUpdateWithoutUsersInput>
+  export type PayoutUpsertWithWhereUniqueWithoutUserInput = {
+    where: PayoutWhereUniqueInput
+    update: XOR<PayoutUpdateWithoutUserInput, PayoutUncheckedUpdateWithoutUserInput>
+    create: XOR<PayoutCreateWithoutUserInput, PayoutUncheckedCreateWithoutUserInput>
   }
 
-  export type RoleUpdateWithoutUsersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    role?: EnumRoleTypeFieldUpdateOperationsInput | $Enums.RoleType
-    room_member_roles?: RoomMemberUpdateManyWithoutRoleNestedInput
+  export type PayoutUpdateWithWhereUniqueWithoutUserInput = {
+    where: PayoutWhereUniqueInput
+    data: XOR<PayoutUpdateWithoutUserInput, PayoutUncheckedUpdateWithoutUserInput>
   }
 
-  export type RoleUncheckedUpdateWithoutUsersInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    role?: EnumRoleTypeFieldUpdateOperationsInput | $Enums.RoleType
-    room_member_roles?: RoomMemberUncheckedUpdateManyWithoutRoleNestedInput
+  export type PayoutUpdateManyWithWhereWithoutUserInput = {
+    where: PayoutScalarWhereInput
+    data: XOR<PayoutUpdateManyMutationInput, PayoutUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type RoomUpsertWithWhereUniqueWithoutCreated_by_userInput = {
-    where: RoomWhereUniqueInput
-    update: XOR<RoomUpdateWithoutCreated_by_userInput, RoomUncheckedUpdateWithoutCreated_by_userInput>
-    create: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput>
-  }
-
-  export type RoomUpdateWithWhereUniqueWithoutCreated_by_userInput = {
-    where: RoomWhereUniqueInput
-    data: XOR<RoomUpdateWithoutCreated_by_userInput, RoomUncheckedUpdateWithoutCreated_by_userInput>
-  }
-
-  export type RoomUpdateManyWithWhereWithoutCreated_by_userInput = {
-    where: RoomScalarWhereInput
-    data: XOR<RoomUpdateManyMutationInput, RoomUncheckedUpdateManyWithoutCreated_by_userInput>
-  }
-
-  export type RoomScalarWhereInput = {
-    AND?: RoomScalarWhereInput | RoomScalarWhereInput[]
-    OR?: RoomScalarWhereInput[]
-    NOT?: RoomScalarWhereInput | RoomScalarWhereInput[]
-    id?: StringFilter<"Room"> | string
-    name?: StringNullableFilter<"Room"> | string | null
-    is_group?: BoolFilter<"Room"> | boolean
-    created_by?: StringFilter<"Room"> | string
-    created_at?: DateTimeFilter<"Room"> | Date | string
+  export type PayoutScalarWhereInput = {
+    AND?: PayoutScalarWhereInput | PayoutScalarWhereInput[]
+    OR?: PayoutScalarWhereInput[]
+    NOT?: PayoutScalarWhereInput | PayoutScalarWhereInput[]
+    id?: StringFilter<"Payout"> | string
+    user_id?: StringFilter<"Payout"> | string
+    amount?: IntFilter<"Payout"> | number
+    bank_name?: StringFilter<"Payout"> | string
+    bank_account_number?: StringFilter<"Payout"> | string
+    bank_account_name?: StringFilter<"Payout"> | string
+    status?: EnumTransactionTypeNullableFilter<"Payout"> | $Enums.TransactionType | null
+    proof?: StringNullableFilter<"Payout"> | string | null
+    created_at?: DateTimeFilter<"Payout"> | Date | string
   }
 
   export type RoomMemberUpsertWithWhereUniqueWithoutUserInput = {
@@ -16580,29 +16561,31 @@ export namespace Prisma {
     created_at?: DateTimeFilter<"RoomMessage"> | Date | string
   }
 
-  export type PasswordResetUpsertWithWhereUniqueWithoutUserInput = {
-    where: PasswordResetWhereUniqueInput
-    update: XOR<PasswordResetUpdateWithoutUserInput, PasswordResetUncheckedUpdateWithoutUserInput>
-    create: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput>
+  export type RoomUpsertWithWhereUniqueWithoutCreated_by_userInput = {
+    where: RoomWhereUniqueInput
+    update: XOR<RoomUpdateWithoutCreated_by_userInput, RoomUncheckedUpdateWithoutCreated_by_userInput>
+    create: XOR<RoomCreateWithoutCreated_by_userInput, RoomUncheckedCreateWithoutCreated_by_userInput>
   }
 
-  export type PasswordResetUpdateWithWhereUniqueWithoutUserInput = {
-    where: PasswordResetWhereUniqueInput
-    data: XOR<PasswordResetUpdateWithoutUserInput, PasswordResetUncheckedUpdateWithoutUserInput>
+  export type RoomUpdateWithWhereUniqueWithoutCreated_by_userInput = {
+    where: RoomWhereUniqueInput
+    data: XOR<RoomUpdateWithoutCreated_by_userInput, RoomUncheckedUpdateWithoutCreated_by_userInput>
   }
 
-  export type PasswordResetUpdateManyWithWhereWithoutUserInput = {
-    where: PasswordResetScalarWhereInput
-    data: XOR<PasswordResetUpdateManyMutationInput, PasswordResetUncheckedUpdateManyWithoutUserInput>
+  export type RoomUpdateManyWithWhereWithoutCreated_by_userInput = {
+    where: RoomScalarWhereInput
+    data: XOR<RoomUpdateManyMutationInput, RoomUncheckedUpdateManyWithoutCreated_by_userInput>
   }
 
-  export type PasswordResetScalarWhereInput = {
-    AND?: PasswordResetScalarWhereInput | PasswordResetScalarWhereInput[]
-    OR?: PasswordResetScalarWhereInput[]
-    NOT?: PasswordResetScalarWhereInput | PasswordResetScalarWhereInput[]
-    id?: StringFilter<"PasswordReset"> | string
-    user_id?: StringFilter<"PasswordReset"> | string
-    token?: StringFilter<"PasswordReset"> | string
+  export type RoomScalarWhereInput = {
+    AND?: RoomScalarWhereInput | RoomScalarWhereInput[]
+    OR?: RoomScalarWhereInput[]
+    NOT?: RoomScalarWhereInput | RoomScalarWhereInput[]
+    id?: StringFilter<"Room"> | string
+    name?: StringNullableFilter<"Room"> | string | null
+    is_group?: BoolFilter<"Room"> | boolean
+    created_by?: StringFilter<"Room"> | string
+    created_at?: DateTimeFilter<"Room"> | Date | string
   }
 
   export type TransactionUpsertWithWhereUniqueWithoutOwnerInput = {
@@ -16650,35 +16633,52 @@ export namespace Prisma {
     data: XOR<TransactionUpdateManyMutationInput, TransactionUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type PayoutUpsertWithWhereUniqueWithoutUserInput = {
-    where: PayoutWhereUniqueInput
-    update: XOR<PayoutUpdateWithoutUserInput, PayoutUncheckedUpdateWithoutUserInput>
-    create: XOR<PayoutCreateWithoutUserInput, PayoutUncheckedCreateWithoutUserInput>
+  export type PasswordResetUpsertWithWhereUniqueWithoutUserInput = {
+    where: PasswordResetWhereUniqueInput
+    update: XOR<PasswordResetUpdateWithoutUserInput, PasswordResetUncheckedUpdateWithoutUserInput>
+    create: XOR<PasswordResetCreateWithoutUserInput, PasswordResetUncheckedCreateWithoutUserInput>
   }
 
-  export type PayoutUpdateWithWhereUniqueWithoutUserInput = {
-    where: PayoutWhereUniqueInput
-    data: XOR<PayoutUpdateWithoutUserInput, PayoutUncheckedUpdateWithoutUserInput>
+  export type PasswordResetUpdateWithWhereUniqueWithoutUserInput = {
+    where: PasswordResetWhereUniqueInput
+    data: XOR<PasswordResetUpdateWithoutUserInput, PasswordResetUncheckedUpdateWithoutUserInput>
   }
 
-  export type PayoutUpdateManyWithWhereWithoutUserInput = {
-    where: PayoutScalarWhereInput
-    data: XOR<PayoutUpdateManyMutationInput, PayoutUncheckedUpdateManyWithoutUserInput>
+  export type PasswordResetUpdateManyWithWhereWithoutUserInput = {
+    where: PasswordResetScalarWhereInput
+    data: XOR<PasswordResetUpdateManyMutationInput, PasswordResetUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type PayoutScalarWhereInput = {
-    AND?: PayoutScalarWhereInput | PayoutScalarWhereInput[]
-    OR?: PayoutScalarWhereInput[]
-    NOT?: PayoutScalarWhereInput | PayoutScalarWhereInput[]
-    id?: StringFilter<"Payout"> | string
-    user_id?: StringFilter<"Payout"> | string
-    amount?: IntFilter<"Payout"> | number
-    bank_name?: StringFilter<"Payout"> | string
-    bank_account_number?: StringFilter<"Payout"> | string
-    bank_account_name?: StringFilter<"Payout"> | string
-    status?: EnumTransactionTypeNullableFilter<"Payout"> | $Enums.TransactionType | null
-    proof?: StringNullableFilter<"Payout"> | string | null
-    created_at?: DateTimeFilter<"Payout"> | Date | string
+  export type PasswordResetScalarWhereInput = {
+    AND?: PasswordResetScalarWhereInput | PasswordResetScalarWhereInput[]
+    OR?: PasswordResetScalarWhereInput[]
+    NOT?: PasswordResetScalarWhereInput | PasswordResetScalarWhereInput[]
+    id?: StringFilter<"PasswordReset"> | string
+    user_id?: StringFilter<"PasswordReset"> | string
+    token?: StringFilter<"PasswordReset"> | string
+  }
+
+  export type RoleUpsertWithoutUsersInput = {
+    update: XOR<RoleUpdateWithoutUsersInput, RoleUncheckedUpdateWithoutUsersInput>
+    create: XOR<RoleCreateWithoutUsersInput, RoleUncheckedCreateWithoutUsersInput>
+    where?: RoleWhereInput
+  }
+
+  export type RoleUpdateToOneWithWhereWithoutUsersInput = {
+    where?: RoleWhereInput
+    data: XOR<RoleUpdateWithoutUsersInput, RoleUncheckedUpdateWithoutUsersInput>
+  }
+
+  export type RoleUpdateWithoutUsersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleTypeFieldUpdateOperationsInput | $Enums.RoleType
+    room_member_roles?: RoomMemberUpdateManyWithoutRoleNestedInput
+  }
+
+  export type RoleUncheckedUpdateWithoutUsersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleTypeFieldUpdateOperationsInput | $Enums.RoleType
+    room_member_roles?: RoomMemberUncheckedUpdateManyWithoutRoleNestedInput
   }
 
   export type GroupAssetCreateWithoutGroupInput = {
@@ -16834,46 +16834,11 @@ export namespace Prisma {
     transactions?: TransactionUncheckedUpdateManyWithoutGroupNestedInput
   }
 
-  export type UserCreateWithoutRoomInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    photo: string
-    role: RoleCreateNestedOneWithoutUsersInput
-    room_members?: RoomMemberCreateNestedManyWithoutUserInput
-    room_message?: RoomMessageCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
-    owner_transactions?: TransactionCreateNestedManyWithoutOwnerInput
-    member_transactions?: TransactionCreateNestedManyWithoutUserInput
-    payouts?: PayoutCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutRoomInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    photo: string
-    role_id: string
-    room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
-    room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
-    owner_transactions?: TransactionUncheckedCreateNestedManyWithoutOwnerInput
-    member_transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
-    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutRoomInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutRoomInput, UserUncheckedCreateWithoutRoomInput>
-  }
-
   export type RoomMemberCreateWithoutRoomInput = {
     id?: string
     joined_at?: Date | string
-    user: UserCreateNestedOneWithoutRoom_membersInput
     role: RoleCreateNestedOneWithoutRoom_member_rolesInput
+    user: UserCreateNestedOneWithoutRoom_membersInput
   }
 
   export type RoomMemberUncheckedCreateWithoutRoomInput = {
@@ -16919,45 +16884,39 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UserUpsertWithoutRoomInput = {
-    update: XOR<UserUpdateWithoutRoomInput, UserUncheckedUpdateWithoutRoomInput>
+  export type UserCreateWithoutRoomInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    photo: string
+    payouts?: PayoutCreateNestedManyWithoutUserInput
+    room_members?: RoomMemberCreateNestedManyWithoutUserInput
+    room_message?: RoomMessageCreateNestedManyWithoutUserInput
+    owner_transactions?: TransactionCreateNestedManyWithoutOwnerInput
+    member_transactions?: TransactionCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+    role: RoleCreateNestedOneWithoutUsersInput
+  }
+
+  export type UserUncheckedCreateWithoutRoomInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    photo: string
+    role_id: string
+    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
+    room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
+    room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
+    owner_transactions?: TransactionUncheckedCreateNestedManyWithoutOwnerInput
+    member_transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutRoomInput = {
+    where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutRoomInput, UserUncheckedCreateWithoutRoomInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutRoomInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutRoomInput, UserUncheckedUpdateWithoutRoomInput>
-  }
-
-  export type UserUpdateWithoutRoomInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
-    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
-    room_members?: RoomMemberUpdateManyWithoutUserNestedInput
-    room_message?: RoomMessageUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
-    owner_transactions?: TransactionUpdateManyWithoutOwnerNestedInput
-    member_transactions?: TransactionUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutRoomInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
-    role_id?: StringFieldUpdateOperationsInput | string
-    room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
-    room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
-    owner_transactions?: TransactionUncheckedUpdateManyWithoutOwnerNestedInput
-    member_transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type RoomMemberUpsertWithWhereUniqueWithoutRoomInput = {
@@ -16992,13 +16951,71 @@ export namespace Prisma {
     data: XOR<RoomMessageUpdateManyMutationInput, RoomMessageUncheckedUpdateManyWithoutRoomInput>
   }
 
+  export type UserUpsertWithoutRoomInput = {
+    update: XOR<UserUpdateWithoutRoomInput, UserUncheckedUpdateWithoutRoomInput>
+    create: XOR<UserCreateWithoutRoomInput, UserUncheckedCreateWithoutRoomInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutRoomInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutRoomInput, UserUncheckedUpdateWithoutRoomInput>
+  }
+
+  export type UserUpdateWithoutRoomInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    photo?: StringFieldUpdateOperationsInput | string
+    payouts?: PayoutUpdateManyWithoutUserNestedInput
+    room_members?: RoomMemberUpdateManyWithoutUserNestedInput
+    room_message?: RoomMessageUpdateManyWithoutUserNestedInput
+    owner_transactions?: TransactionUpdateManyWithoutOwnerNestedInput
+    member_transactions?: TransactionUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutRoomInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    photo?: StringFieldUpdateOperationsInput | string
+    role_id?: StringFieldUpdateOperationsInput | string
+    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
+    room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
+    room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
+    owner_transactions?: TransactionUncheckedUpdateManyWithoutOwnerNestedInput
+    member_transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type RoleCreateWithoutRoom_member_rolesInput = {
+    id?: string
+    role: $Enums.RoleType
+    users?: UserCreateNestedManyWithoutRoleInput
+  }
+
+  export type RoleUncheckedCreateWithoutRoom_member_rolesInput = {
+    id?: string
+    role: $Enums.RoleType
+    users?: UserUncheckedCreateNestedManyWithoutRoleInput
+  }
+
+  export type RoleCreateOrConnectWithoutRoom_member_rolesInput = {
+    where: RoleWhereUniqueInput
+    create: XOR<RoleCreateWithoutRoom_member_rolesInput, RoleUncheckedCreateWithoutRoom_member_rolesInput>
+  }
+
   export type RoomCreateWithoutMembersInput = {
     id?: string
     name?: string | null
     is_group?: boolean
     created_at?: Date | string
-    created_by_user: UserCreateNestedOneWithoutRoomInput
     messages?: RoomMessageCreateNestedManyWithoutRoomInput
+    created_by_user: UserCreateNestedOneWithoutRoomInput
   }
 
   export type RoomUncheckedCreateWithoutMembersInput = {
@@ -17021,13 +17038,13 @@ export namespace Prisma {
     email: string
     password: string
     photo: string
-    role: RoleCreateNestedOneWithoutUsersInput
-    room?: RoomCreateNestedManyWithoutCreated_by_userInput
+    payouts?: PayoutCreateNestedManyWithoutUserInput
     room_message?: RoomMessageCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+    room?: RoomCreateNestedManyWithoutCreated_by_userInput
     owner_transactions?: TransactionCreateNestedManyWithoutOwnerInput
     member_transactions?: TransactionCreateNestedManyWithoutUserInput
-    payouts?: PayoutCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+    role: RoleCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutRoom_membersInput = {
@@ -17037,12 +17054,12 @@ export namespace Prisma {
     password: string
     photo: string
     role_id: string
-    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
+    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
     room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
     owner_transactions?: TransactionUncheckedCreateNestedManyWithoutOwnerInput
     member_transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
-    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutRoom_membersInput = {
@@ -17050,21 +17067,27 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutRoom_membersInput, UserUncheckedCreateWithoutRoom_membersInput>
   }
 
-  export type RoleCreateWithoutRoom_member_rolesInput = {
-    id?: string
-    role: $Enums.RoleType
-    users?: UserCreateNestedManyWithoutRoleInput
-  }
-
-  export type RoleUncheckedCreateWithoutRoom_member_rolesInput = {
-    id?: string
-    role: $Enums.RoleType
-    users?: UserUncheckedCreateNestedManyWithoutRoleInput
-  }
-
-  export type RoleCreateOrConnectWithoutRoom_member_rolesInput = {
-    where: RoleWhereUniqueInput
+  export type RoleUpsertWithoutRoom_member_rolesInput = {
+    update: XOR<RoleUpdateWithoutRoom_member_rolesInput, RoleUncheckedUpdateWithoutRoom_member_rolesInput>
     create: XOR<RoleCreateWithoutRoom_member_rolesInput, RoleUncheckedCreateWithoutRoom_member_rolesInput>
+    where?: RoleWhereInput
+  }
+
+  export type RoleUpdateToOneWithWhereWithoutRoom_member_rolesInput = {
+    where?: RoleWhereInput
+    data: XOR<RoleUpdateWithoutRoom_member_rolesInput, RoleUncheckedUpdateWithoutRoom_member_rolesInput>
+  }
+
+  export type RoleUpdateWithoutRoom_member_rolesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleTypeFieldUpdateOperationsInput | $Enums.RoleType
+    users?: UserUpdateManyWithoutRoleNestedInput
+  }
+
+  export type RoleUncheckedUpdateWithoutRoom_member_rolesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleTypeFieldUpdateOperationsInput | $Enums.RoleType
+    users?: UserUncheckedUpdateManyWithoutRoleNestedInput
   }
 
   export type RoomUpsertWithoutMembersInput = {
@@ -17083,8 +17106,8 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     is_group?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    created_by_user?: UserUpdateOneRequiredWithoutRoomNestedInput
     messages?: RoomMessageUpdateManyWithoutRoomNestedInput
+    created_by_user?: UserUpdateOneRequiredWithoutRoomNestedInput
   }
 
   export type RoomUncheckedUpdateWithoutMembersInput = {
@@ -17113,13 +17136,13 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
-    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
-    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
+    payouts?: PayoutUpdateManyWithoutUserNestedInput
     room_message?: RoomMessageUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
     owner_transactions?: TransactionUpdateManyWithoutOwnerNestedInput
     member_transactions?: TransactionUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutRoom_membersInput = {
@@ -17129,35 +17152,12 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
     role_id?: StringFieldUpdateOperationsInput | string
-    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
+    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
     room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
     owner_transactions?: TransactionUncheckedUpdateManyWithoutOwnerNestedInput
     member_transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type RoleUpsertWithoutRoom_member_rolesInput = {
-    update: XOR<RoleUpdateWithoutRoom_member_rolesInput, RoleUncheckedUpdateWithoutRoom_member_rolesInput>
-    create: XOR<RoleCreateWithoutRoom_member_rolesInput, RoleUncheckedCreateWithoutRoom_member_rolesInput>
-    where?: RoleWhereInput
-  }
-
-  export type RoleUpdateToOneWithWhereWithoutRoom_member_rolesInput = {
-    where?: RoleWhereInput
-    data: XOR<RoleUpdateWithoutRoom_member_rolesInput, RoleUncheckedUpdateWithoutRoom_member_rolesInput>
-  }
-
-  export type RoleUpdateWithoutRoom_member_rolesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    role?: EnumRoleTypeFieldUpdateOperationsInput | $Enums.RoleType
-    users?: UserUpdateManyWithoutRoleNestedInput
-  }
-
-  export type RoleUncheckedUpdateWithoutRoom_member_rolesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    role?: EnumRoleTypeFieldUpdateOperationsInput | $Enums.RoleType
-    users?: UserUncheckedUpdateManyWithoutRoleNestedInput
+    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type RoomCreateWithoutMessagesInput = {
@@ -17165,8 +17165,8 @@ export namespace Prisma {
     name?: string | null
     is_group?: boolean
     created_at?: Date | string
-    created_by_user: UserCreateNestedOneWithoutRoomInput
     members?: RoomMemberCreateNestedManyWithoutRoomInput
+    created_by_user: UserCreateNestedOneWithoutRoomInput
   }
 
   export type RoomUncheckedCreateWithoutMessagesInput = {
@@ -17189,13 +17189,13 @@ export namespace Prisma {
     email: string
     password: string
     photo: string
-    role: RoleCreateNestedOneWithoutUsersInput
-    room?: RoomCreateNestedManyWithoutCreated_by_userInput
+    payouts?: PayoutCreateNestedManyWithoutUserInput
     room_members?: RoomMemberCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+    room?: RoomCreateNestedManyWithoutCreated_by_userInput
     owner_transactions?: TransactionCreateNestedManyWithoutOwnerInput
     member_transactions?: TransactionCreateNestedManyWithoutUserInput
-    payouts?: PayoutCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+    role: RoleCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutRoom_messageInput = {
@@ -17205,12 +17205,12 @@ export namespace Prisma {
     password: string
     photo: string
     role_id: string
-    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
+    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
     room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
     owner_transactions?: TransactionUncheckedCreateNestedManyWithoutOwnerInput
     member_transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
-    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutRoom_messageInput = {
@@ -17234,8 +17234,8 @@ export namespace Prisma {
     name?: NullableStringFieldUpdateOperationsInput | string | null
     is_group?: BoolFieldUpdateOperationsInput | boolean
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    created_by_user?: UserUpdateOneRequiredWithoutRoomNestedInput
     members?: RoomMemberUpdateManyWithoutRoomNestedInput
+    created_by_user?: UserUpdateOneRequiredWithoutRoomNestedInput
   }
 
   export type RoomUncheckedUpdateWithoutMessagesInput = {
@@ -17264,13 +17264,13 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
-    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
-    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
+    payouts?: PayoutUpdateManyWithoutUserNestedInput
     room_members?: RoomMemberUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
     owner_transactions?: TransactionUpdateManyWithoutOwnerNestedInput
     member_transactions?: TransactionUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutRoom_messageInput = {
@@ -17280,12 +17280,12 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
     role_id?: StringFieldUpdateOperationsInput | string
-    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
+    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
     room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
     owner_transactions?: TransactionUncheckedUpdateManyWithoutOwnerNestedInput
     member_transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutPassword_resetsInput = {
@@ -17294,13 +17294,13 @@ export namespace Prisma {
     email: string
     password: string
     photo: string
-    role: RoleCreateNestedOneWithoutUsersInput
-    room?: RoomCreateNestedManyWithoutCreated_by_userInput
+    payouts?: PayoutCreateNestedManyWithoutUserInput
     room_members?: RoomMemberCreateNestedManyWithoutUserInput
     room_message?: RoomMessageCreateNestedManyWithoutUserInput
+    room?: RoomCreateNestedManyWithoutCreated_by_userInput
     owner_transactions?: TransactionCreateNestedManyWithoutOwnerInput
     member_transactions?: TransactionCreateNestedManyWithoutUserInput
-    payouts?: PayoutCreateNestedManyWithoutUserInput
+    role: RoleCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutPassword_resetsInput = {
@@ -17310,12 +17310,12 @@ export namespace Prisma {
     password: string
     photo: string
     role_id: string
-    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
+    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
     room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
     room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
+    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
     owner_transactions?: TransactionUncheckedCreateNestedManyWithoutOwnerInput
     member_transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
-    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutPassword_resetsInput = {
@@ -17340,13 +17340,13 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
-    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
-    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
+    payouts?: PayoutUpdateManyWithoutUserNestedInput
     room_members?: RoomMemberUpdateManyWithoutUserNestedInput
     room_message?: RoomMessageUpdateManyWithoutUserNestedInput
+    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
     owner_transactions?: TransactionUpdateManyWithoutOwnerNestedInput
     member_transactions?: TransactionUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUpdateManyWithoutUserNestedInput
+    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPassword_resetsInput = {
@@ -17356,82 +17356,12 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
     role_id?: StringFieldUpdateOperationsInput | string
-    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
+    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
     room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
     room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
+    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
     owner_transactions?: TransactionUncheckedUpdateManyWithoutOwnerNestedInput
     member_transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserCreateWithoutOwner_transactionsInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    photo: string
-    role: RoleCreateNestedOneWithoutUsersInput
-    room?: RoomCreateNestedManyWithoutCreated_by_userInput
-    room_members?: RoomMemberCreateNestedManyWithoutUserInput
-    room_message?: RoomMessageCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
-    member_transactions?: TransactionCreateNestedManyWithoutUserInput
-    payouts?: PayoutCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutOwner_transactionsInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    photo: string
-    role_id: string
-    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
-    room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
-    room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
-    member_transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
-    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutOwner_transactionsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutOwner_transactionsInput, UserUncheckedCreateWithoutOwner_transactionsInput>
-  }
-
-  export type UserCreateWithoutMember_transactionsInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    photo: string
-    role: RoleCreateNestedOneWithoutUsersInput
-    room?: RoomCreateNestedManyWithoutCreated_by_userInput
-    room_members?: RoomMemberCreateNestedManyWithoutUserInput
-    room_message?: RoomMessageCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
-    owner_transactions?: TransactionCreateNestedManyWithoutOwnerInput
-    payouts?: PayoutCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutMember_transactionsInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    photo: string
-    role_id: string
-    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
-    room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
-    room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
-    owner_transactions?: TransactionUncheckedCreateNestedManyWithoutOwnerInput
-    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutMember_transactionsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutMember_transactionsInput, UserUncheckedCreateWithoutMember_transactionsInput>
   }
 
   export type GroupCreateWithoutTransactionsInput = {
@@ -17463,86 +17393,74 @@ export namespace Prisma {
     create: XOR<GroupCreateWithoutTransactionsInput, GroupUncheckedCreateWithoutTransactionsInput>
   }
 
-  export type UserUpsertWithoutOwner_transactionsInput = {
-    update: XOR<UserUpdateWithoutOwner_transactionsInput, UserUncheckedUpdateWithoutOwner_transactionsInput>
+  export type UserCreateWithoutOwner_transactionsInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    photo: string
+    payouts?: PayoutCreateNestedManyWithoutUserInput
+    room_members?: RoomMemberCreateNestedManyWithoutUserInput
+    room_message?: RoomMessageCreateNestedManyWithoutUserInput
+    room?: RoomCreateNestedManyWithoutCreated_by_userInput
+    member_transactions?: TransactionCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+    role: RoleCreateNestedOneWithoutUsersInput
+  }
+
+  export type UserUncheckedCreateWithoutOwner_transactionsInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    photo: string
+    role_id: string
+    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
+    room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
+    room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
+    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
+    member_transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutOwner_transactionsInput = {
+    where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutOwner_transactionsInput, UserUncheckedCreateWithoutOwner_transactionsInput>
-    where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutOwner_transactionsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutOwner_transactionsInput, UserUncheckedUpdateWithoutOwner_transactionsInput>
+  export type UserCreateWithoutMember_transactionsInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    photo: string
+    payouts?: PayoutCreateNestedManyWithoutUserInput
+    room_members?: RoomMemberCreateNestedManyWithoutUserInput
+    room_message?: RoomMessageCreateNestedManyWithoutUserInput
+    room?: RoomCreateNestedManyWithoutCreated_by_userInput
+    owner_transactions?: TransactionCreateNestedManyWithoutOwnerInput
+    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+    role: RoleCreateNestedOneWithoutUsersInput
   }
 
-  export type UserUpdateWithoutOwner_transactionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
-    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
-    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
-    room_members?: RoomMemberUpdateManyWithoutUserNestedInput
-    room_message?: RoomMessageUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
-    member_transactions?: TransactionUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUpdateManyWithoutUserNestedInput
+  export type UserUncheckedCreateWithoutMember_transactionsInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    photo: string
+    role_id: string
+    payouts?: PayoutUncheckedCreateNestedManyWithoutUserInput
+    room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
+    room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
+    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
+    owner_transactions?: TransactionUncheckedCreateNestedManyWithoutOwnerInput
+    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedUpdateWithoutOwner_transactionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
-    role_id?: StringFieldUpdateOperationsInput | string
-    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
-    room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
-    room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
-    member_transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUpsertWithoutMember_transactionsInput = {
-    update: XOR<UserUpdateWithoutMember_transactionsInput, UserUncheckedUpdateWithoutMember_transactionsInput>
+  export type UserCreateOrConnectWithoutMember_transactionsInput = {
+    where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutMember_transactionsInput, UserUncheckedCreateWithoutMember_transactionsInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutMember_transactionsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutMember_transactionsInput, UserUncheckedUpdateWithoutMember_transactionsInput>
-  }
-
-  export type UserUpdateWithoutMember_transactionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
-    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
-    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
-    room_members?: RoomMemberUpdateManyWithoutUserNestedInput
-    room_message?: RoomMessageUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
-    owner_transactions?: TransactionUpdateManyWithoutOwnerNestedInput
-    payouts?: PayoutUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutMember_transactionsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
-    role_id?: StringFieldUpdateOperationsInput | string
-    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
-    room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
-    room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
-    owner_transactions?: TransactionUncheckedUpdateManyWithoutOwnerNestedInput
-    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type GroupUpsertWithoutTransactionsInput = {
@@ -17580,19 +17498,101 @@ export namespace Prisma {
     assets?: GroupAssetUncheckedUpdateManyWithoutGroupNestedInput
   }
 
+  export type UserUpsertWithoutOwner_transactionsInput = {
+    update: XOR<UserUpdateWithoutOwner_transactionsInput, UserUncheckedUpdateWithoutOwner_transactionsInput>
+    create: XOR<UserCreateWithoutOwner_transactionsInput, UserUncheckedCreateWithoutOwner_transactionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutOwner_transactionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutOwner_transactionsInput, UserUncheckedUpdateWithoutOwner_transactionsInput>
+  }
+
+  export type UserUpdateWithoutOwner_transactionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    photo?: StringFieldUpdateOperationsInput | string
+    payouts?: PayoutUpdateManyWithoutUserNestedInput
+    room_members?: RoomMemberUpdateManyWithoutUserNestedInput
+    room_message?: RoomMessageUpdateManyWithoutUserNestedInput
+    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
+    member_transactions?: TransactionUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutOwner_transactionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    photo?: StringFieldUpdateOperationsInput | string
+    role_id?: StringFieldUpdateOperationsInput | string
+    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
+    room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
+    room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
+    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
+    member_transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUpsertWithoutMember_transactionsInput = {
+    update: XOR<UserUpdateWithoutMember_transactionsInput, UserUncheckedUpdateWithoutMember_transactionsInput>
+    create: XOR<UserCreateWithoutMember_transactionsInput, UserUncheckedCreateWithoutMember_transactionsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutMember_transactionsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutMember_transactionsInput, UserUncheckedUpdateWithoutMember_transactionsInput>
+  }
+
+  export type UserUpdateWithoutMember_transactionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    photo?: StringFieldUpdateOperationsInput | string
+    payouts?: PayoutUpdateManyWithoutUserNestedInput
+    room_members?: RoomMemberUpdateManyWithoutUserNestedInput
+    room_message?: RoomMessageUpdateManyWithoutUserNestedInput
+    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
+    owner_transactions?: TransactionUpdateManyWithoutOwnerNestedInput
+    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutMember_transactionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    photo?: StringFieldUpdateOperationsInput | string
+    role_id?: StringFieldUpdateOperationsInput | string
+    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
+    room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
+    room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
+    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
+    owner_transactions?: TransactionUncheckedUpdateManyWithoutOwnerNestedInput
+    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+  }
+
   export type UserCreateWithoutPayoutsInput = {
     id?: string
     name: string
     email: string
     password: string
     photo: string
-    role: RoleCreateNestedOneWithoutUsersInput
-    room?: RoomCreateNestedManyWithoutCreated_by_userInput
     room_members?: RoomMemberCreateNestedManyWithoutUserInput
     room_message?: RoomMessageCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+    room?: RoomCreateNestedManyWithoutCreated_by_userInput
     owner_transactions?: TransactionCreateNestedManyWithoutOwnerInput
     member_transactions?: TransactionCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetCreateNestedManyWithoutUserInput
+    role: RoleCreateNestedOneWithoutUsersInput
   }
 
   export type UserUncheckedCreateWithoutPayoutsInput = {
@@ -17602,12 +17602,12 @@ export namespace Prisma {
     password: string
     photo: string
     role_id: string
-    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
     room_members?: RoomMemberUncheckedCreateNestedManyWithoutUserInput
     room_message?: RoomMessageUncheckedCreateNestedManyWithoutUserInput
-    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
+    room?: RoomUncheckedCreateNestedManyWithoutCreated_by_userInput
     owner_transactions?: TransactionUncheckedCreateNestedManyWithoutOwnerInput
     member_transactions?: TransactionUncheckedCreateNestedManyWithoutUserInput
+    password_resets?: PasswordResetUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutPayoutsInput = {
@@ -17632,13 +17632,13 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
-    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
-    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
     room_members?: RoomMemberUpdateManyWithoutUserNestedInput
     room_message?: RoomMessageUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
     owner_transactions?: TransactionUpdateManyWithoutOwnerNestedInput
     member_transactions?: TransactionUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+    role?: RoleUpdateOneRequiredWithoutUsersNestedInput
   }
 
   export type UserUncheckedUpdateWithoutPayoutsInput = {
@@ -17648,20 +17648,12 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     photo?: StringFieldUpdateOperationsInput | string
     role_id?: StringFieldUpdateOperationsInput | string
-    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
     room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
     room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
     owner_transactions?: TransactionUncheckedUpdateManyWithoutOwnerNestedInput
     member_transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserCreateManyRoleInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    photo: string
+    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type RoomMemberCreateManyRoleInput = {
@@ -17671,42 +17663,12 @@ export namespace Prisma {
     joined_at?: Date | string
   }
 
-  export type UserUpdateWithoutRoleInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
-    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
-    room_members?: RoomMemberUpdateManyWithoutUserNestedInput
-    room_message?: RoomMessageUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
-    owner_transactions?: TransactionUpdateManyWithoutOwnerNestedInput
-    member_transactions?: TransactionUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutRoleInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
-    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
-    room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
-    room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
-    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
-    owner_transactions?: TransactionUncheckedUpdateManyWithoutOwnerNestedInput
-    member_transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
-    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateManyWithoutRoleInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    photo?: StringFieldUpdateOperationsInput | string
+  export type UserCreateManyRoleInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    photo: string
   }
 
   export type RoomMemberUpdateWithoutRoleInput = {
@@ -17730,10 +17692,52 @@ export namespace Prisma {
     joined_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type RoomCreateManyCreated_by_userInput = {
+  export type UserUpdateWithoutRoleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    photo?: StringFieldUpdateOperationsInput | string
+    payouts?: PayoutUpdateManyWithoutUserNestedInput
+    room_members?: RoomMemberUpdateManyWithoutUserNestedInput
+    room_message?: RoomMessageUpdateManyWithoutUserNestedInput
+    room?: RoomUpdateManyWithoutCreated_by_userNestedInput
+    owner_transactions?: TransactionUpdateManyWithoutOwnerNestedInput
+    member_transactions?: TransactionUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutRoleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    photo?: StringFieldUpdateOperationsInput | string
+    payouts?: PayoutUncheckedUpdateManyWithoutUserNestedInput
+    room_members?: RoomMemberUncheckedUpdateManyWithoutUserNestedInput
+    room_message?: RoomMessageUncheckedUpdateManyWithoutUserNestedInput
+    room?: RoomUncheckedUpdateManyWithoutCreated_by_userNestedInput
+    owner_transactions?: TransactionUncheckedUpdateManyWithoutOwnerNestedInput
+    member_transactions?: TransactionUncheckedUpdateManyWithoutUserNestedInput
+    password_resets?: PasswordResetUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateManyWithoutRoleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    photo?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PayoutCreateManyUserInput = {
     id?: string
-    name?: string | null
-    is_group?: boolean
+    amount: number
+    bank_name: string
+    bank_account_number: string
+    bank_account_name: string
+    status?: $Enums.TransactionType | null
+    proof?: string | null
     created_at?: Date | string
   }
 
@@ -17752,9 +17756,11 @@ export namespace Prisma {
     created_at?: Date | string
   }
 
-  export type PasswordResetCreateManyUserInput = {
+  export type RoomCreateManyCreated_by_userInput = {
     id?: string
-    token: string
+    name?: string | null
+    is_group?: boolean
+    created_at?: Date | string
   }
 
   export type TransactionCreateManyOwnerInput = {
@@ -17775,47 +17781,49 @@ export namespace Prisma {
     created_at?: Date | string
   }
 
-  export type PayoutCreateManyUserInput = {
+  export type PasswordResetCreateManyUserInput = {
     id?: string
-    amount: number
-    bank_name: string
-    bank_account_number: string
-    bank_account_name: string
-    status?: $Enums.TransactionType | null
-    proof?: string | null
-    created_at?: Date | string
+    token: string
   }
 
-  export type RoomUpdateWithoutCreated_by_userInput = {
+  export type PayoutUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    is_group?: BoolFieldUpdateOperationsInput | boolean
+    amount?: IntFieldUpdateOperationsInput | number
+    bank_name?: StringFieldUpdateOperationsInput | string
+    bank_account_number?: StringFieldUpdateOperationsInput | string
+    bank_account_name?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType | null
+    proof?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    members?: RoomMemberUpdateManyWithoutRoomNestedInput
-    messages?: RoomMessageUpdateManyWithoutRoomNestedInput
   }
 
-  export type RoomUncheckedUpdateWithoutCreated_by_userInput = {
+  export type PayoutUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    is_group?: BoolFieldUpdateOperationsInput | boolean
+    amount?: IntFieldUpdateOperationsInput | number
+    bank_name?: StringFieldUpdateOperationsInput | string
+    bank_account_number?: StringFieldUpdateOperationsInput | string
+    bank_account_name?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType | null
+    proof?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    members?: RoomMemberUncheckedUpdateManyWithoutRoomNestedInput
-    messages?: RoomMessageUncheckedUpdateManyWithoutRoomNestedInput
   }
 
-  export type RoomUncheckedUpdateManyWithoutCreated_by_userInput = {
+  export type PayoutUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
-    is_group?: BoolFieldUpdateOperationsInput | boolean
+    amount?: IntFieldUpdateOperationsInput | number
+    bank_name?: StringFieldUpdateOperationsInput | string
+    bank_account_number?: StringFieldUpdateOperationsInput | string
+    bank_account_name?: StringFieldUpdateOperationsInput | string
+    status?: NullableEnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType | null
+    proof?: NullableStringFieldUpdateOperationsInput | string | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type RoomMemberUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     joined_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    room?: RoomUpdateOneRequiredWithoutMembersNestedInput
     role?: RoleUpdateOneRequiredWithoutRoom_member_rolesNestedInput
+    room?: RoomUpdateOneRequiredWithoutMembersNestedInput
   }
 
   export type RoomMemberUncheckedUpdateWithoutUserInput = {
@@ -17856,19 +17864,29 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PasswordResetUpdateWithoutUserInput = {
+  export type RoomUpdateWithoutCreated_by_userInput = {
     id?: StringFieldUpdateOperationsInput | string
-    token?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_group?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    members?: RoomMemberUpdateManyWithoutRoomNestedInput
+    messages?: RoomMessageUpdateManyWithoutRoomNestedInput
   }
 
-  export type PasswordResetUncheckedUpdateWithoutUserInput = {
+  export type RoomUncheckedUpdateWithoutCreated_by_userInput = {
     id?: StringFieldUpdateOperationsInput | string
-    token?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_group?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    members?: RoomMemberUncheckedUpdateManyWithoutRoomNestedInput
+    messages?: RoomMessageUncheckedUpdateManyWithoutRoomNestedInput
   }
 
-  export type PasswordResetUncheckedUpdateManyWithoutUserInput = {
+  export type RoomUncheckedUpdateManyWithoutCreated_by_userInput = {
     id?: StringFieldUpdateOperationsInput | string
-    token?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    is_group?: BoolFieldUpdateOperationsInput | boolean
+    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TransactionUpdateWithoutOwnerInput = {
@@ -17876,8 +17894,8 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number
     type?: NullableEnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutMember_transactionsNestedInput
     group?: GroupUpdateOneRequiredWithoutTransactionsNestedInput
+    user?: UserUpdateOneRequiredWithoutMember_transactionsNestedInput
   }
 
   export type TransactionUncheckedUpdateWithoutOwnerInput = {
@@ -17903,8 +17921,8 @@ export namespace Prisma {
     price?: IntFieldUpdateOperationsInput | number
     type?: NullableEnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType | null
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    owner?: UserUpdateOneRequiredWithoutOwner_transactionsNestedInput
     group?: GroupUpdateOneRequiredWithoutTransactionsNestedInput
+    owner?: UserUpdateOneRequiredWithoutOwner_transactionsNestedInput
   }
 
   export type TransactionUncheckedUpdateWithoutUserInput = {
@@ -17925,37 +17943,19 @@ export namespace Prisma {
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PayoutUpdateWithoutUserInput = {
+  export type PasswordResetUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    amount?: IntFieldUpdateOperationsInput | number
-    bank_name?: StringFieldUpdateOperationsInput | string
-    bank_account_number?: StringFieldUpdateOperationsInput | string
-    bank_account_name?: StringFieldUpdateOperationsInput | string
-    status?: NullableEnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType | null
-    proof?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
   }
 
-  export type PayoutUncheckedUpdateWithoutUserInput = {
+  export type PasswordResetUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    amount?: IntFieldUpdateOperationsInput | number
-    bank_name?: StringFieldUpdateOperationsInput | string
-    bank_account_number?: StringFieldUpdateOperationsInput | string
-    bank_account_name?: StringFieldUpdateOperationsInput | string
-    status?: NullableEnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType | null
-    proof?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
   }
 
-  export type PayoutUncheckedUpdateManyWithoutUserInput = {
+  export type PasswordResetUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    amount?: IntFieldUpdateOperationsInput | number
-    bank_name?: StringFieldUpdateOperationsInput | string
-    bank_account_number?: StringFieldUpdateOperationsInput | string
-    bank_account_name?: StringFieldUpdateOperationsInput | string
-    status?: NullableEnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType | null
-    proof?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    token?: StringFieldUpdateOperationsInput | string
   }
 
   export type GroupAssetCreateManyGroupInput = {
@@ -18032,8 +18032,8 @@ export namespace Prisma {
   export type RoomMemberUpdateWithoutRoomInput = {
     id?: StringFieldUpdateOperationsInput | string
     joined_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutRoom_membersNestedInput
     role?: RoleUpdateOneRequiredWithoutRoom_member_rolesNestedInput
+    user?: UserUpdateOneRequiredWithoutRoom_membersNestedInput
   }
 
   export type RoomMemberUncheckedUpdateWithoutRoomInput = {
